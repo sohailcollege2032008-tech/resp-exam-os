@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Respiratory — Physiology Written Questions &mdash; MSK Module</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600&family=Noto+Naskh+Arabic:wght@400;600&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & base ─────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden}
+body{font-family:'Segoe UI',system-ui,sans-serif;line-height:1.5;
+     background:var(--bg);color:var(--text);transition:background .2s,color .2s;
+     overflow-x:hidden;max-width:100vw;
+     --main-fs:15px;--content-width:880px;
+     --arabic-font:'Amiri','Noto Naskh Arabic',Georgia,serif;
+     --exp-color:rgba(230,237,243,.88);
+}
+
+/* ── Font size steps (applied to main content only) ────────────────────── */
+body[data-fs="s"] {--main-fs:13px}
+body[data-fs="l"] {--main-fs:17px}
+body[data-fs="xl"]{--main-fs:19px}
+
+/* ── Theme: dark (default) ─────────────────────────────────────────────── */
+body,.theme-dark{
+  --bg:#0d1117;--surface:#161b22;--card:#1c2128;--border:#30363d;
+  --accent:#e94560;--correct:#3fb950;--wrong:#f85149;--text:#e6edf3;
+  --muted:#8b949e;--nav-h:54px;--filter-h:44px;--progress-bg:#21262d;
+  --star-active:#f0e040;--badge-bg:rgba(233,69,96,.13);--badge-border:rgba(233,69,96,.3);
+  --got-it:#3fb950;--missed:#f85149;--shadow:rgba(0,0,0,.4);
+  --written-bg:rgba(99,179,237,.07);--written-border:#4a9eca;
+  --written-accent:#63b3ed;--written-label:#90cdf4;
+}
+
+/* ── Theme: light ──────────────────────────────────────────────────────── */
+body.theme-light{
+  --bg:#f6f8fa;--surface:#ffffff;--card:#ffffff;--border:#d0d7de;
+  --accent:#0969da;--correct:#1a7f37;--wrong:#cf222e;--text:#1f2328;
+  --muted:#656d76;--progress-bg:#eaeef2;--badge-bg:rgba(9,105,218,.1);
+  --badge-border:rgba(9,105,218,.3);--got-it:#1a7f37;--missed:#cf222e;
+  --shadow:rgba(0,0,0,.1);
+  --written-bg:rgba(9,105,218,.06);--written-border:#0969da;
+  --written-accent:#0550ae;--written-label:#0969da;
+}
+
+/* ── Theme: sepia ──────────────────────────────────────────────────────── */
+body.theme-sepia{
+  --bg:#f4ecd8;--surface:#fdf6e3;--card:#fdf6e3;--border:#d4c5a0;
+  --accent:#a0522d;--correct:#3a7a3a;--wrong:#b22222;--text:#433422;
+  --muted:#8a7060;--progress-bg:#e8ddc0;--badge-bg:rgba(160,82,45,.1);
+  --badge-border:rgba(160,82,45,.3);--got-it:#3a7a3a;--missed:#b22222;
+  --shadow:rgba(100,60,20,.15);
+  --written-bg:rgba(100,60,200,.06);--written-border:#7050a0;
+  --written-accent:#5a3a8a;--written-label:#6a4a9a;
+}
+
+/* ── Theme: high-contrast ──────────────────────────────────────────────── */
+body.theme-hc{
+  --bg:#000000;--surface:#000000;--card:#000000;--border:#ffffff;
+  --accent:#ffff00;--correct:#00ff00;--wrong:#ff4444;--text:#ffffff;
+  --muted:#cccccc;--progress-bg:#333;--badge-bg:rgba(255,255,0,.15);
+  --badge-border:rgba(255,255,0,.6);--got-it:#00ff00;--missed:#ff4444;
+  --shadow:none;font-size:17px;
+  --written-bg:rgba(100,180,255,.08);--written-border:#60b0ff;
+  --written-accent:#80c8ff;--written-label:#60b0ff;
+}
+
+/* ── Fixed header wrapper ──────────────────────────────────────────────── */
+#fixed-header{position:fixed;top:0;left:0;right:0;z-index:200}
+
+/* ── Nav ───────────────────────────────────────────────────────────────── */
+#top-nav{
+  min-height:var(--nav-h);
+  background:rgba(13,17,23,.93);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  border-bottom:1px solid rgba(48,54,61,.6);
+  box-shadow:0 2px 24px rgba(0,0,0,.45);
+  display:flex;flex-wrap:wrap;align-items:center;padding:7px 18px;gap:8px;
+}
+body.theme-light #top-nav{
+  background:rgba(246,248,250,.96);border-bottom-color:rgba(208,215,222,.9);
+  box-shadow:0 2px 14px rgba(0,0,0,.08);
+}
+body.theme-sepia  #top-nav{background:rgba(244,236,216,.96);border-bottom-color:rgba(212,197,160,.8)}
+body.theme-hc #top-nav{background:#000;border-bottom:2px solid #fff;box-shadow:none}
+
+.nav-title{
+  font-weight:700;color:var(--accent);flex-shrink:0;font-size:.9rem;
+  letter-spacing:-.01em;padding-right:12px;
+  border-right:1px solid rgba(255,255,255,.1);margin-right:2px;
+}
+body.theme-light .nav-title{border-right-color:rgba(0,0,0,.12)}
+body.theme-sepia  .nav-title{border-right-color:rgba(0,0,0,.15)}
+body.theme-hc .nav-title{border-right-color:#fff}
+
+.nav-sections{
+  display:flex;align-items:center;gap:4px;flex:1;overflow-x:auto;
+  white-space:nowrap;padding:2px 0;min-width:0;scrollbar-width:none;
+}
+.nav-sections::-webkit-scrollbar{display:none}
+
+.nav-btn{
+  padding:4px 11px;border-radius:20px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
+  color:var(--muted);font-size:.73rem;cursor:pointer;flex-shrink:0;
+  transition:all .18s;text-decoration:none;
+  display:inline-flex;align-items:center;gap:5px;white-space:nowrap;
+}
+.nav-btn:hover{background:rgba(233,69,96,.13);border-color:rgba(233,69,96,.4);color:var(--accent)}
+body.theme-light .nav-btn{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.09)}
+body.theme-light .nav-btn:hover{background:rgba(9,105,218,.09);border-color:rgba(9,105,218,.35);color:var(--accent)}
+body.theme-sepia  .nav-btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1)}
+body.theme-hc .nav-btn{background:transparent;border-color:#555;color:#ccc}
+body.theme-hc .nav-btn:hover{border-color:#ffff00;color:#ffff00}
+
+.nav-btn .sec-prog{
+  font-size:.62rem;background:rgba(233,69,96,.18);
+  color:var(--accent);padding:1px 5px;border-radius:10px;font-weight:600;
+}
+
+.nav-controls{display:flex;align-items:center;gap:5px;flex-shrink:0;margin-left:auto}
+
+/* ── Mode button group ─────────────────────────────────────────────────── */
+.mode-btns{
+  display:flex;gap:2px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:3px;flex-shrink:0;
+}
+body.theme-light .mode-btns{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.1)}
+body.theme-sepia  .mode-btns{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.12)}
+body.theme-hc .mode-btns{border-color:#fff;background:transparent}
+
+.mode-btn{
+  padding:5px 11px;border:none;border-radius:7px;
+  background:transparent;color:var(--muted);
+  font-size:.75rem;cursor:pointer;transition:all .18s;white-space:nowrap;
+}
+.mode-btn:hover:not(.active){background:rgba(255,255,255,.08);color:var(--text)}
+.mode-btn.active{
+  background:var(--accent);color:#fff;font-weight:600;
+  box-shadow:0 2px 10px rgba(233,69,96,.5);
+}
+body.theme-light .mode-btn:hover:not(.active){background:rgba(0,0,0,.06)}
+body.theme-light .mode-btn.active{box-shadow:0 2px 8px rgba(9,105,218,.3)}
+body.theme-hc .mode-btn.active{box-shadow:none;outline:1px solid #ffff00}
+
+/* ── Nav icon buttons (stats / print / reset) ──────────────────────────── */
+.nav-icon-btn{
+  padding:5px 10px;border-radius:8px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
+  color:var(--muted);font-size:.76rem;cursor:pointer;
+  transition:all .18s;white-space:nowrap;flex-shrink:0;
+}
+.nav-icon-btn:hover{background:rgba(233,69,96,.1);border-color:rgba(233,69,96,.3);color:var(--accent)}
+body.theme-light .nav-icon-btn{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.08);color:var(--muted)}
+body.theme-light .nav-icon-btn:hover{background:rgba(9,105,218,.08);border-color:rgba(9,105,218,.3);color:var(--accent)}
+body.theme-sepia  .nav-icon-btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1);color:var(--muted)}
+body.theme-hc .nav-icon-btn{background:transparent;border-color:#aaa;color:#ccc}
+#restart-btn.nav-icon-btn{color:var(--accent);border-color:rgba(233,69,96,.25)}
+#restart-btn.nav-icon-btn:hover{background:rgba(233,69,96,.1);border-color:var(--accent);color:var(--accent)}
+#reset-btn.nav-icon-btn{color:var(--wrong);border-color:rgba(248,81,73,.3)}
+#reset-btn.nav-icon-btn:hover{background:rgba(248,81,73,.12);border-color:var(--wrong);color:var(--wrong)}
+
+/* ── Theme selector ────────────────────────────────────────────────────── */
+.theme-select{
+  padding:5px 8px;border-radius:8px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
+  color:var(--muted);font-size:.76rem;cursor:pointer;transition:all .18s;
+}
+.theme-select:hover{border-color:rgba(233,69,96,.3);color:var(--text)}
+body.theme-light .theme-select{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.08);color:var(--text)}
+body.theme-sepia  .theme-select{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1);color:var(--text)}
+body.theme-hc .theme-select{background:#000;border-color:#fff;color:#fff}
+
+/* ── Stats panel ───────────────────────────────────────────────────────── */
+#stats-panel{
+  background:rgba(13,17,23,.96);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(48,54,61,.5);padding:12px 18px;display:none;
+}
+#stats-panel.open{display:block}
+body.theme-light #stats-panel{background:rgba(246,248,250,.98);border-bottom-color:rgba(208,215,222,.7)}
+body.theme-sepia  #stats-panel{background:rgba(244,236,216,.98);border-bottom-color:rgba(212,197,160,.6)}
+body.theme-hc #stats-panel{background:#000;border-bottom:1px solid #fff}
+.stats-grid{display:flex;gap:24px;flex-wrap:wrap;font-size:.85rem}
+.stat-item{display:flex;flex-direction:column;align-items:center}
+.stat-val{font-size:1.35rem;font-weight:700;color:var(--accent)}
+.stat-label{color:var(--muted);font-size:.7rem;margin-top:2px}
+
+/* ── Filter bar ────────────────────────────────────────────────────────── */
+#filter-bar{
+  background:rgba(10,14,20,.9);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(48,54,61,.4);
+  display:flex;gap:6px;padding:8px 18px;overflow-x:auto;white-space:nowrap;
+  scrollbar-width:none;
+}
+#filter-bar::-webkit-scrollbar{display:none}
+body.theme-light #filter-bar{background:rgba(240,244,248,.93);border-bottom-color:rgba(208,215,222,.6)}
+body.theme-sepia  #filter-bar{background:rgba(238,228,206,.93);border-bottom-color:rgba(212,197,160,.5)}
+body.theme-hc #filter-bar{background:#000;border-bottom:1px solid #fff}
+
+.filter-btn{
+  padding:5px 14px;border-radius:20px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
+  color:var(--muted);font-size:.76rem;cursor:pointer;flex-shrink:0;
+  transition:all .18s;white-space:nowrap;
+}
+.filter-btn:hover:not(.active){
+  background:rgba(233,69,96,.08);border-color:rgba(233,69,96,.3);color:var(--text);
+}
+.filter-btn.active{
+  background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;
+  box-shadow:0 2px 10px rgba(233,69,96,.4);
+}
+body.theme-light .filter-btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.08);color:var(--muted)}
+body.theme-light .filter-btn:hover:not(.active){background:rgba(9,105,218,.07);border-color:rgba(9,105,218,.25)}
+body.theme-light .filter-btn.active{box-shadow:0 2px 10px rgba(9,105,218,.25)}
+body.theme-sepia  .filter-btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1);color:var(--muted)}
+body.theme-hc .filter-btn{background:transparent;border-color:#555;color:#ccc}
+body.theme-hc .filter-btn.active{background:#ffff00;color:#000;border-color:#ffff00;box-shadow:none}
+/* Retry button — right-aligned, accent tinted, hidden by default */
+#retry-btn{
+  display:none;margin-left:auto;
+  background:rgba(233,69,96,.1);border-color:rgba(233,69,96,.35);color:var(--accent);font-weight:600;
+}
+#retry-btn:hover{background:rgba(233,69,96,.22);border-color:var(--accent)}
+body.theme-light #retry-btn{background:rgba(9,105,218,.08);border-color:rgba(9,105,218,.3)}
+body.theme-hc    #retry-btn{border-color:var(--accent);color:var(--accent)}
+
+/* ── Main layout ───────────────────────────────────────────────────────── */
+main{max-width:var(--content-width,880px);margin:0 auto;padding:120px 16px 80px;
+     font-size:var(--main-fs,15px)}
+/* ^^ top padding + scroll-margin set precisely by JS updateMainPadding() */
+.exam-section{scroll-margin-top:120px;margin-bottom:48px}
+.section-title{font-size:1.05rem;font-weight:700;color:var(--accent);
+  border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px}
+.q-count{font-weight:400;font-size:.82rem;color:var(--muted)}
+.section-progress-bar{flex:1;height:6px;border-radius:3px;
+  background:var(--progress-bg);overflow:hidden;max-width:120px}
+.section-progress-fill{height:100%;background:var(--correct);
+  border-radius:3px;transition:width .3s}
+
+/* ── Question card — article flow (no boxes, typography-driven) ─────────── */
+.qcard{
+  background:transparent;border:none;border-radius:0;
+  border-bottom:1px solid rgba(48,54,61,.28);
+  padding:30px 0 26px;margin-bottom:0;
+  transition:opacity .2s;
+}
+body.theme-light .qcard{border-bottom-color:rgba(208,215,222,.45)}
+body.theme-sepia  .qcard{border-bottom-color:rgba(212,197,160,.5)}
+body.theme-hc .qcard{border-bottom:1px solid #444}
+.qcard:last-child{border-bottom:none}
+.qcard.filtered-out{display:none}
+/* Starred: left accent stripe */
+.qcard.starred-card{padding-left:14px;border-left:3px solid var(--star-active)}
+
+.qcard-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.q-num{
+  font-size:.62rem;color:var(--accent);font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;flex-shrink:0;
+  opacity:.75;
+}
+.qcard-badges{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.topic-badge,.type-badge,.img-needed-badge{padding:2px 8px;border-radius:12px;
+  font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.topic-badge{background:var(--badge-bg);border:1px solid var(--badge-border);color:var(--accent)}
+.type-badge{background:rgba(100,100,200,.1);border:1px solid rgba(100,100,200,.25);color:#9898e8}
+.img-needed-badge{background:rgba(240,180,40,.1);border:1px solid rgba(240,180,40,.25);
+  color:#c09000;cursor:help}
+.star-btn{background:none;border:none;cursor:pointer;font-size:1.05rem;
+  color:var(--muted);padding:2px 4px;line-height:1;flex-shrink:0;
+  transition:color .15s,transform .15s}
+.star-btn:hover{color:var(--star-active);transform:scale(1.2)}
+.star-btn.starred{color:var(--star-active)}
+.q-image{margin:12px 0;border-radius:6px;overflow:hidden;border:1px solid var(--border)}
+.q-image img{max-width:100%;display:block}
+/* Question text — large, readable, the anchor of each item */
+.q-text{
+  font-size:1.05em;line-height:1.75;margin-bottom:14px;direction:ltr;
+  color:var(--text);font-weight:400;
+}
+
+/* ── Options — clean, minimal ────────────────────────────────────────────── */
+.opts{list-style:none;margin-bottom:4px}
+.opt{
+  padding:7px 12px;margin:3px 0;border-radius:6px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  font-size:.92em;cursor:pointer;transition:all .15s;direction:ltr;
+  color:var(--text);
+}
+body.theme-light .opt{background:rgba(0,0,0,.025);border-color:rgba(0,0,0,.06)}
+body.theme-sepia  .opt{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.08)}
+body.theme-hc .opt{background:transparent;border-color:#333}
+body.mode-test .opt:not(.answered-opt):hover{
+  border-color:var(--accent);background:rgba(233,69,96,.07)}
+.opt.opt-correct{
+  background:rgba(63,185,80,.1);border-color:rgba(63,185,80,.3);
+  color:var(--correct);font-weight:600}
+.opt.opt-wrong{
+  background:rgba(248,81,73,.1);border-color:rgba(248,81,73,.3);color:var(--wrong)}
+body.mode-study .opt.is-correct{
+  background:rgba(63,185,80,.09);border-color:rgba(63,185,80,.28);color:var(--correct)}
+
+/* ── Answer block — flows as natural continuation of question ──────────── */
+.answer-block{margin-top:18px;padding-top:14px;border-top:1px solid rgba(48,54,61,.2);
+  display:none}
+body.theme-light .answer-block{border-top-color:rgba(208,215,222,.4)}
+.answer-block.visible{display:block}
+
+/* Answer reveal — just a label, no pill/chip */
+.answer-reveal{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.85rem;font-weight:700;
+  color:var(--correct);margin-bottom:14px;
+  padding:0;background:none;border:none;letter-spacing:.02em;
+}
+
+/* Section label above explanation */
+.exp-label{
+  font-size:.6rem;color:var(--accent);letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:8px;opacity:.65;
+}
+
+/* Explanation — Amiri, full-width prose, no left border */
+.explanation-ar{
+  font-family:var(--arabic-font);
+  line-height:2.25;font-size:1.05em;
+  color:var(--exp-color);
+  direction:rtl;padding:0;border:none;
+  text-align:justify;text-align-last:right;
+}
+body.theme-light .explanation-ar{--exp-color:rgba(31,35,40,.86)}
+body.theme-sepia  .explanation-ar{--exp-color:rgba(67,52,34,.85)}
+body.theme-hc .explanation-ar{--exp-color:#fff}
+.explanation-ar p{margin-bottom:.65em}
+.explanation-ar p:last-child{margin-bottom:0}
+
+/* ── Show buttons ────────────────────────────────────────────────────────── */
+.show-exp-btn,.show-answer-btn{
+  display:none;margin-top:12px;padding:6px 16px;
+  border-radius:6px;background:transparent;
+  border:1px solid rgba(255,255,255,.12);
+  color:var(--muted);cursor:pointer;font-size:.84rem;transition:all .16s;
+}
+.show-exp-btn:hover,.show-answer-btn:hover{border-color:var(--accent);color:var(--accent)}
+body.theme-light .show-exp-btn,body.theme-light .show-answer-btn{border-color:rgba(0,0,0,.15)}
+/* Show Explanation only after the question has been answered */
+body.mode-test .qcard[data-answered] .show-exp-btn{display:inline-block}
+body.mode-test .show-answer-btn{display:inline-block}
+
+/* ── Self-assess (written) ───────────────────────────────────────────────── */
+.self-assess{margin-top:14px;display:flex;gap:8px}
+.got-it-btn{padding:5px 14px;border-radius:6px;background:transparent;
+  border:1px solid rgba(63,185,80,.4);color:var(--got-it);cursor:pointer;font-size:.82rem;
+  transition:background .15s}
+.missed-btn{padding:5px 14px;border-radius:6px;background:transparent;
+  border:1px solid rgba(248,81,73,.4);color:var(--missed);cursor:pointer;font-size:.82rem;
+  transition:background .15s}
+.got-it-btn:hover{background:rgba(63,185,80,.12)}
+.missed-btn:hover{background:rgba(248,81,73,.12)}
+
+/* ── Matching table ─────────────────────────────────────────────────────── */
+.matching-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem}
+.matching-table td{padding:6px 10px;vertical-align:middle}
+.match-left{color:var(--text);width:55%}
+.match-right{width:45%}
+.match-select{width:100%;padding:5px 8px;border-radius:6px;
+  background:var(--surface);border:1px solid var(--border);color:var(--text);
+  font-size:.88rem;cursor:pointer}
+.match-row.match-correct .match-left{color:var(--correct)}
+.match-row.match-wrong   .match-left{color:var(--wrong)}
+.check-match-btn{padding:7px 15px;border-radius:6px;background:var(--surface);
+  border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:.86rem}
+.check-match-btn:hover{border-color:var(--accent)}
+
+/* (reset-btn styling now in .nav-icon-btn + #reset-btn.nav-icon-btn override) */
+
+/* ── Responsive / Mobile ────────────────────────────────────────────────── */
+/* Tablet: nav scrollable row (same nav behavior as mobile) */
+@media(min-width:601px) and (max-width:1024px){
+  #top-nav{
+    flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;touch-action:pan-x}
+  #top-nav::-webkit-scrollbar{display:none}
+}
+@media(max-width:600px){
+  /* Nav: single scrollable row — no wrapping, no page overflow */
+  #top-nav{
+    flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    padding:5px 10px;gap:4px;scrollbar-width:none;min-height:var(--nav-h)}
+  #top-nav::-webkit-scrollbar{display:none}
+  .nav-title{font-size:.78rem;white-space:nowrap;flex-shrink:0}
+  .nav-sections{flex-shrink:1;min-width:0}
+  .nav-controls{flex-shrink:0;gap:4px}
+  .mode-btn{padding:4px 7px;font-size:.69rem;white-space:nowrap}
+  .nav-btn{font-size:.7rem;padding:3px 7px}
+  .nav-icon-btn{padding:4px 8px;font-size:.72rem}
+
+  /* Content */
+  .qcard{padding:22px 0 18px}
+  main{padding:12px 14px 40px}
+  .stats-grid{gap:12px}
+  .settings-row{gap:14px}
+  .setting-block{min-width:110px}
+}
+
+/* ── Written answer block — English LTR, clean readable font ─────────────── */
+.written-answer{
+  margin-bottom:0;padding:0;background:none;border:none;border-radius:0;
+  direction:ltr;
+}
+.w-part{
+  display:flex;gap:10px;align-items:baseline;margin-bottom:.85em;
+  direction:ltr;  /* numbers always on the LEFT */
+}
+.w-part:last-child{margin-bottom:0}
+.w-label{
+  font-family:'Segoe UI',system-ui,sans-serif;
+  font-size:1em;font-weight:700;color:var(--written-label);
+  flex-shrink:0;min-width:24px;
+}
+.w-text{
+  font-family:'Segoe UI',system-ui,sans-serif;
+  font-size:1.06em;line-height:1.8;
+  color:var(--text);font-weight:400;
+  text-align:left;
+}
+.w-text strong{color:var(--written-label);font-weight:700}
+/* Intro line — same readability as numbered items, just slightly smaller */
+.w-intro .w-text{font-size:.97em}
+
+/* ── Rich explanation formatting ────────────────────────────────────────── */
+.exp-h{
+  font-family:var(--arabic-font);font-size:.95em;font-weight:700;
+  color:var(--accent);margin:10px 0 4px;padding:0;border:none;
+  display:block;letter-spacing:-.01em;
+}
+.exp-em{font-style:italic;color:var(--written-accent);font-weight:400}
+.exp-q{
+  display:block;border-right:3px solid rgba(233,69,96,.35);
+  padding:4px 10px 4px 0;margin:8px 0;
+  font-style:normal;opacity:.82;color:var(--text);
+  text-align:justify;text-align-last:right;
+}
+body.theme-light .exp-q,body.theme-sepia .exp-q{border-right-color:rgba(9,105,218,.3)}
+.exp-term{
+  background:rgba(233,69,96,.12);color:var(--accent);
+  border-radius:3px;padding:0 4px;font-weight:600;
+  font-style:normal;
+}
+body.theme-light .exp-term{background:rgba(9,105,218,.1);color:var(--accent)}
+.opt-lbl{
+  display:inline-block;margin-top:.45em;
+  color:var(--written-accent);font-size:.88em;font-weight:700;
+  font-family:'Courier New',monospace;letter-spacing:.01em;
+}
+.exp-table-wrap{overflow-x:auto;margin:10px 0}
+.exp-table{
+  border-collapse:collapse;width:100%;font-size:.86em;
+  font-family:var(--arabic-font);text-align:start;
+}
+.exp-table th,.exp-table td{
+  border:1px solid rgba(255,255,255,.13);padding:5px 10px;vertical-align:top;
+}
+.exp-table thead tr{background:rgba(255,255,255,.07);font-weight:700}
+.exp-table tbody tr:nth-child(even){background:rgba(255,255,255,.03)}
+body.theme-light .exp-table th,body.theme-light .exp-table td{border-color:rgba(0,0,0,.11)}
+body.theme-light .exp-table thead tr{background:rgba(9,105,218,.07)}
+body.theme-light .exp-table tbody tr:nth-child(even){background:rgba(0,0,0,.025)}
+body.theme-sepia  .exp-table th,body.theme-sepia  .exp-table td{border-color:rgba(139,109,56,.18)}
+body.theme-sepia  .exp-table thead tr{background:rgba(139,109,56,.09)}
+body.theme-hc .exp-table th,body.theme-hc .exp-table td{border-color:#888}
+body.theme-hc .exp-table thead tr{background:#333;color:#fff}
+
+/* ── Settings panel ──────────────────────────────────────────────────────── */
+#settings-panel{
+  background:rgba(13,17,23,.97);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(48,54,61,.5);padding:12px 18px;display:none;
+}
+#settings-panel.open{display:block}
+body.theme-light #settings-panel{background:rgba(246,248,250,.98);border-bottom-color:rgba(208,215,222,.7)}
+body.theme-sepia  #settings-panel{background:rgba(244,236,216,.98);border-bottom-color:rgba(212,197,160,.6)}
+body.theme-hc #settings-panel{background:#000;border-bottom:1px solid #fff}
+.settings-row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+.setting-block{display:flex;flex-direction:column;gap:6px;min-width:130px}
+.setting-label{font-size:.65rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+/* Font-size step buttons */
+.fs-btns{display:flex;gap:3px}
+.fs-btn{
+  padding:4px 9px;border-radius:6px;border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.05);color:var(--muted);cursor:pointer;
+  font-size:var(--_fs,12px);transition:all .16s;line-height:1;
+}
+.fs-btn[data-fs="s"]{--_fs:11px}
+.fs-btn[data-fs="m"]{--_fs:13px}
+.fs-btn[data-fs="l"]{--_fs:15px}
+.fs-btn[data-fs="xl"]{--_fs:17px}
+.fs-btn.active,.fs-btn:hover{background:rgba(233,69,96,.15);border-color:rgba(233,69,96,.4);color:var(--accent)}
+body.theme-light .fs-btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1)}
+/* Width slider */
+.sett-range{
+  width:100%;accent-color:var(--accent);cursor:pointer;
+  height:4px;border-radius:2px;
+}
+.sett-val{font-size:.7rem;color:var(--muted)}
+/* Font select */
+.sett-select{
+  padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.09);color:var(--muted);
+  font-size:.76rem;cursor:pointer;
+}
+body.theme-light .sett-select{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.08);color:var(--text)}
+/* Color swatches */
+.color-swatches{display:flex;gap:6px;flex-wrap:wrap}
+.color-sw{
+  width:22px;height:22px;border-radius:50%;cursor:pointer;
+  border:2px solid transparent;transition:all .16s;flex-shrink:0;
+}
+.color-sw.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(233,69,96,.3)}
+.color-sw:hover{transform:scale(1.15)}
+
+/* ── Marker mode ─────────────────────────────────────────────────────────── */
+body.mode-marker .opt.is-correct{
+  background:rgba(255,230,0,.22);border:2px solid #ffe000 !important;
+  color:#ffe000;font-weight:700;
+  box-shadow:0 0 0 2px rgba(255,230,0,.12)}
+body.mode-marker .opt:not(.is-correct){opacity:.45}
+/* Test mode: hide explanation by default — only show after clicking Show Explanation */
+body.mode-test .explanation-ar:not(.exp-revealed),
+body.mode-test .exp-label:not(.exp-revealed){display:none}
+
+body.mode-marker .answer-block{display:block}
+body.mode-marker .explanation-ar,
+body.mode-marker .exp-label{display:none!important}
+body.mode-marker .show-exp-btn,
+body.mode-marker .show-answer-btn,
+body.mode-marker .self-assess{display:none!important}
+/* Study mode: always show answer blocks (JS also handles this) */
+/* Study mode: auto-show all answer blocks (MCQ + written) */
+body.mode-study .qcard .answer-block{display:block}
+
+/* ── Ask GPT button ────────────────────────────────────────────────────── */
+.gpt-btn{
+  font-size:.78rem;padding:3px 10px;border-radius:5px;
+  background:#10a37f;color:#fff;border:none;
+  cursor:pointer;margin-top:8px;opacity:.85;transition:opacity .15s;display:inline-block;
+}
+.gpt-btn:hover{opacity:1}
+.gpt-toast{
+  position:fixed;bottom:22px;right:22px;z-index:9999;
+  background:rgba(30,30,30,.95);color:#fff;padding:8px 18px;
+  border-radius:8px;font-size:.85rem;border-left:3px solid #10a37f;
+  animation:fadeInToast .2s ease;pointer-events:none;
+}
+@keyframes fadeInToast{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Print protection — blank page on any print attempt ─────────────────── */
+@media print{
+  html,body{display:none!important;visibility:hidden!important}
+}
+
+/* ── Annotate system ─────────────────────────────────────────────────────── */
+.qcard{position:relative;overflow:hidden}
+.qcard-canvas{
+  position:absolute;top:0;left:0;width:100%;
+  pointer-events:none;z-index:10;border-radius:inherit;touch-action:none
+}
+body.mode-annotate .qcard-canvas{pointer-events:auto;cursor:crosshair}
+body.mode-annotate.tool-erase .qcard-canvas{cursor:cell}
+body.mode-annotate.tool-pan .qcard-canvas{cursor:grab}
+#annotate-bar{
+  display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:40px;padding:8px 18px;gap:10px;align-items:center;
+  z-index:500;box-shadow:0 4px 24px rgba(0,0,0,.35);backdrop-filter:blur(12px)
+}
+body.mode-annotate #annotate-bar{display:flex}
+.ann-tool-btn{
+  background:none;border:1.5px solid transparent;border-radius:50%;
+  width:36px;height:36px;font-size:16px;cursor:pointer;color:var(--text);
+  transition:background .15s,border-color .15s
+}
+.ann-tool-btn:hover{background:var(--border)}
+.ann-tool-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.ann-sep{width:1px;height:24px;background:var(--border);flex-shrink:0}
+.ann-color{
+  width:22px;height:22px;border-radius:50%;border:2px solid transparent;
+  cursor:pointer;transition:transform .15s;flex-shrink:0
+}
+.ann-color.active{border-color:var(--text);transform:scale(1.2)}
+.ann-width{width:80px;accent-color:var(--accent);cursor:pointer}
+.ann-action-btn{
+  background:none;border:1.5px solid var(--border);border-radius:8px;
+  padding:4px 10px;font-size:12px;color:var(--muted);cursor:pointer
+}
+.ann-action-btn:hover{border-color:var(--accent);color:var(--accent)}
+.ann-clear-btn:hover{border-color:#e74c3c!important;color:#e74c3c!important}
+.sticky-note-btn{
+  background:none;border:none;cursor:pointer;font-size:14px;
+  opacity:.5;transition:opacity .15s;margin-left:4px;padding:2px
+}
+.sticky-note-btn:hover,.sticky-note-btn.has-note{opacity:1}
+.sticky-note{
+  display:none;position:absolute;right:0;top:0;width:220px;height:170px;
+  background:#fffde7;border:1px solid #f0e060;border-radius:8px;z-index:50;
+  box-shadow:3px 3px 12px rgba(0,0,0,.22);flex-direction:column;overflow:hidden;
+  resize:both;min-width:160px;min-height:120px;max-width:480px;max-height:480px
+}
+.note-mini-bar{display:flex;align-items:center;gap:3px;flex:1;padding:1px 3px;overflow:hidden}
+.nc{width:13px;height:13px;border-radius:50%;cursor:pointer;border:1.5px solid rgba(0,0,0,.2);flex-shrink:0;transition:transform .1s}
+.nc.act{border-color:#333;transform:scale(1.2)}
+.nw{width:44px;height:3px;cursor:pointer;accent-color:#555;flex-shrink:0}
+.ne,.nu{background:none;border:none;cursor:pointer;font-size:12px;padding:1px 3px;color:#333;line-height:1;border-radius:2px}
+.ne:hover,.nu:hover{background:rgba(0,0,0,.12)}
+.ne.erasing{background:rgba(0,0,0,.18);outline:1px solid #555}
+.sticky-note.visible{display:flex}
+.sticky-note-header{
+  background:#f9e400;display:flex;justify-content:flex-end;padding:3px 6px
+}
+.note-close-btn{background:none;border:none;cursor:pointer;font-size:14px;color:#555;line-height:1}
+.sticky-canvas{flex:1;width:100%;cursor:crosshair;touch-action:none;display:block}
+.ann-sett-btn{
+  padding:4px 9px;border-radius:6px;border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.05);color:var(--muted);cursor:pointer;
+  font-size:.76rem;transition:all .16s;line-height:1
+}
+.ann-sett-btn.active{background:rgba(233,69,96,.15);border-color:rgba(233,69,96,.4);color:var(--accent)}
+body.theme-light .ann-sett-btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1)}
+/* === CUSTOM SELECTION POPUP === */
+#sel-popup{
+  display:none;position:fixed;z-index:700;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:28px;padding:5px 12px;gap:6px;align-items:center;
+  box-shadow:0 4px 20px rgba(0,0,0,.45);backdrop-filter:blur(14px);
+  transform:translateX(-50%);pointer-events:auto;
+  user-select:none;-webkit-user-select:none;
+}
+#sel-popup.visible{display:flex}
+.sel-hl-dot{
+  width:20px;height:20px;border-radius:50%;
+  cursor:pointer;border:2px solid transparent;flex-shrink:0;
+  transition:transform .15s,border-color .12s;
+}
+.sel-hl-dot:hover{transform:scale(1.3)}
+.sel-sep2{width:1px;height:18px;background:var(--border);flex-shrink:0}
+.sel-btn{
+  background:none;border:none;cursor:pointer;font-size:13px;
+  color:var(--muted);padding:2px 7px;border-radius:6px;
+  transition:all .15s;white-space:nowrap;
+}
+.sel-btn:hover{background:var(--border);color:var(--text)}
+.sel-remove-btn:hover{color:#e74c3c!important}
+mark.hl-yellow{background:rgba(255,220,0,.45);color:inherit;border-radius:2px}
+mark.hl-green{background:rgba(76,175,80,.38);color:inherit;border-radius:2px}
+mark.hl-blue{background:rgba(33,150,243,.35);color:inherit;border-radius:2px}
+mark.hl-pink{background:rgba(233,30,99,.30);color:inherit;border-radius:2px}
+</style>
+</head>
+<body class="mode-study theme-dark">
+
+<div id="fixed-header">
+<nav id="top-nav">
+  <span class="nav-title">❤️ Respiratory — Physiology Written Questions</span>
+  <div class="nav-sections"><a class="nav-btn" id="navbtn-61" href="#section-61">امتحان 61<span class="sec-prog">0/1</span></a>
+<a class="nav-btn" id="navbtn-57" href="#section-57">إند موديول 57<span class="sec-prog">0/2</span></a></div>
+  <div class="nav-controls">
+    <button id="sett-toggle" class="nav-icon-btn" onclick="toggleSettings()">&#9881;&#65039; Settings</button>
+    <button id="stats-toggle" class="nav-icon-btn" onclick="toggleStats()">&#128200; Stats</button>
+    <div class="mode-btns">
+      <button class="mode-btn active" id="mode-btn-study" onclick="setMode('study')">&#128214; Study</button>
+      <button class="mode-btn" id="mode-btn-test" onclick="setMode('test')">&#9999;&#65039; Test</button>
+      <button class="mode-btn" id="mode-btn-marker" onclick="setMode('marker')">&#128397; Marker</button>
+      <button class="mode-btn" id="mode-btn-annotate" onclick="setMode('annotate')">&#9998; Annotate</button>
+    </div>
+    <select id="theme-select" class="theme-select" onchange="changeTheme(this)" title="Theme">
+      <option value="dark">&#127769; Dark</option>
+      <option value="light">&#9728;&#65039; Light</option>
+      <option value="sepia">&#128220; Sepia</option>
+      <option value="hc">&#11035; H-Contrast</option>
+    </select>
+    <button id="fs-btn" class="nav-icon-btn" onclick="toggleFullscreen()" title="Fullscreen">&#x26F6; Fullscreen</button>
+    <button id="restart-btn" class="nav-icon-btn" onclick="restartExam()" title="Clear answers only — keeps settings, stars, theme">&#9654; New Attempt</button>
+    <button id="reset-btn" class="nav-icon-btn" onclick="resetProgress()" title="Clear everything including settings">&#8635; Full Reset</button>
+  </div>
+</nav>
+
+<div id="stats-panel">
+  <div class="stats-grid">
+    <div class="stat-item"><span class="stat-val" id="stat-total">0</span><span class="stat-label">Total</span></div>
+    <div class="stat-item"><span class="stat-val" id="stat-ans">0</span><span class="stat-label">Answered</span></div>
+    <div class="stat-item"><span class="stat-val" id="stat-correct">0</span><span class="stat-label">Correct</span></div>
+    <div class="stat-item"><span class="stat-val" id="stat-wrong">0</span><span class="stat-label">Wrong</span></div>
+    <div class="stat-item"><span class="stat-val" id="stat-pct">0%</span><span class="stat-label">Done</span></div>
+  </div>
+</div>
+
+<div id="settings-panel">
+  <div class="settings-row">
+    <div class="setting-block">
+      <div class="setting-label">Font Size</div>
+      <div class="fs-btns">
+        <button class="fs-btn" data-fs="s"  onclick="changeFontSize('s')">A</button>
+        <button class="fs-btn active" data-fs="m" onclick="changeFontSize('m')">A</button>
+        <button class="fs-btn" data-fs="l"  onclick="changeFontSize('l')">A</button>
+        <button class="fs-btn" data-fs="xl" onclick="changeFontSize('xl')">A</button>
+      </div>
+    </div>
+    <div class="setting-block" style="min-width:180px">
+      <div class="setting-label">Content Width &mdash; <span id="width-display">880px</span></div>
+      <input type="range" class="sett-range" id="width-range"
+             min="600" max="1200" step="40" value="880"
+             oninput="changeWidth(this)">
+    </div>
+    <div class="setting-block">
+      <div class="setting-label">Arabic Font</div>
+      <select class="sett-select" id="font-family-sel" onchange="changeFont(this)">
+        <option value="amiri">Amiri (Classic)</option>
+        <option value="noto">Noto Naskh</option>
+        <option value="cairo">Cairo</option>
+        <option value="tajawal">Tajawal</option>
+        <option value="system">System Default</option>
+      </select>
+    </div>
+    <div class="setting-block">
+      <div class="setting-label">Explanation Color</div>
+      <div class="color-swatches" id="exp-color-swatches">
+        <button class="color-sw active" data-c="default" onclick="changeExpColor('default')"
+                style="background:rgba(230,237,243,.75)" title="Default"></button>
+        <button class="color-sw" data-c="warm" onclick="changeExpColor('warm')"
+                style="background:#e8d5a3" title="Warm"></button>
+        <button class="color-sw" data-c="cyan" onclick="changeExpColor('cyan')"
+                style="background:#90cdf4" title="Cyan"></button>
+        <button class="color-sw" data-c="gold" onclick="changeExpColor('gold')"
+                style="background:#f6d860" title="Gold"></button>
+        <button class="color-sw" data-c="mint" onclick="changeExpColor('mint')"
+                style="background:#9ae6b4" title="Mint"></button>
+      </div>
+    </div>
+    <div class="setting-block">
+      <div class="setting-label">Annotate</div>
+      <button id="palm-reject-btn" class="ann-sett-btn active" onclick="togglePalmReject(this)"
+              title="Reject large touch contacts (palm) — keeps hand off canvas while pen writes">
+        &#128586; Palm Reject: ON
+      </button>
+    </div>
+    <div class="setting-block" style="min-width:180px">
+      <div class="setting-label">Stroke Smoothing &mdash; <span id="ann-smooth-display">80%</span></div>
+      <input type="range" class="sett-range" id="ann-smooth-range"
+             min="0" max="100" step="5" value="80"
+             oninput="changeAnnSmooth(this)"
+             title="0% = sharp lines, 100% = full bezier smoothing">
+    </div>
+  </div>
+</div>
+
+<div id="filter-bar">
+  <button class="filter-btn active" data-filter="all" onclick="applyFilter('all')">All (<span id="fc-all">0</span>)</button>
+  <button class="filter-btn" data-filter="unanswered" onclick="applyFilter('unanswered')">Unanswered (<span id="fc-unanswered">0</span>)</button>
+  <button class="filter-btn" data-filter="correct" onclick="applyFilter('correct')">&#10003; Correct (<span id="fc-correct">0</span>)</button>
+  <button class="filter-btn" data-filter="wrong" onclick="applyFilter('wrong')">&#10007; Wrong (<span id="fc-wrong">0</span>)</button>
+  <button class="filter-btn" data-filter="starred" onclick="applyFilter('starred')">&#9733; Starred (<span id="fc-starred">0</span>)</button>
+  <button class="filter-btn" id="retry-btn" onclick="retryFiltered()">&#8635; Retry</button>
+</div>
+</div>
+
+<div id="annotate-bar">
+  <button class="ann-tool-btn active" data-tool="pen" onclick="setAnnTool('pen')" title="Pen">&#9998;</button>
+  <button class="ann-tool-btn" data-tool="erase" onclick="setAnnTool('erase')" title="Erase">&#11036;</button>
+  <button class="ann-tool-btn" data-tool="pan" onclick="setAnnTool('pan')" title="Pan / scroll (touch moves page)">&#9995;</button>
+  <div class="ann-sep"></div>
+  <div class="ann-color active" data-color="#e74c3c" style="background:#e74c3c" onclick="setAnnColor(this)" title="Red"></div>
+  <div class="ann-color" data-color="#2980b9" style="background:#2980b9" onclick="setAnnColor(this)" title="Blue"></div>
+  <div class="ann-color" data-color="#27ae60" style="background:#27ae60" onclick="setAnnColor(this)" title="Green"></div>
+  <div class="ann-color" data-color="#f39c12" style="background:#f39c12" onclick="setAnnColor(this)" title="Orange"></div>
+  <div class="ann-color" data-color="#8e44ad" style="background:#8e44ad" onclick="setAnnColor(this)" title="Purple"></div>
+  <div class="ann-sep"></div>
+  <input class="ann-width" type="range" min="1" max="10" value="3" oninput="setAnnWidth(this)" title="Pen width">
+  <div class="ann-sep"></div>
+  <button class="ann-action-btn" onclick="annUndo()" title="Undo">&#8617;</button>
+  <button class="ann-action-btn" onclick="annRedo()" title="Redo">&#8618;</button>
+  <div class="ann-sep"></div>
+  <button class="ann-action-btn ann-clear-btn" onclick="clearAllAnnotations()">Clear All</button>
+</div>
+<div id="sel-popup">
+  <div class="sel-hl-dot" style="background:#ffd700" title="Highlight Yellow" onclick="selHighlight('yellow')"></div>
+  <div class="sel-hl-dot" style="background:#4caf50" title="Highlight Green"  onclick="selHighlight('green')"></div>
+  <div class="sel-hl-dot" style="background:#2196f3" title="Highlight Blue"   onclick="selHighlight('blue')"></div>
+  <div class="sel-hl-dot" style="background:#e91e63" title="Highlight Pink"   onclick="selHighlight('pink')"></div>
+  <div class="sel-sep2"></div>
+  <button class="sel-btn sel-remove-btn" id="sel-remove-btn" onclick="selRemoveHighlight()" title="Remove highlight">&#10006;</button>
+  <button class="sel-btn" onclick="selCopy()" title="Copy">&#128203;</button>
+  <button class="sel-btn" onclick="selSearch()" title="Search on Google">&#128269;</button>
+</div>
+
+<main>
+<section id="section-61" class="exam-section">
+  <h2 class="section-title">
+    امتحان 61
+    <span class="q-count">(1 questions)</span>
+    <div class="section-progress-bar">
+      <div class="section-progress-fill" id="secfill-61" style="width:0%"></div>
+    </div>
+  </h2>
+  
+<div class="qcard" data-id="rw_resp_61_exam_physio_q01" data-type="written" data-idx="1" data-subject="Physiology">
+<canvas class="qcard-canvas" data-qid="rw_resp_61_exam_physio_q01"></canvas>
+<div class="sticky-note" data-qid="rw_resp_61_exam_physio_q01">
+  <div class="sticky-note-header"><button class="note-close-btn" onclick="closeNote(this)">&#215;</button></div>
+  <canvas class="sticky-canvas" data-qid="rw_resp_61_exam_physio_q01" tabindex="0"></canvas>
+</div>
+  <div class="qcard-header">
+    <span class="q-num">Q1</span>
+    <span class="type-badge type-written">Written</span>
+    <button class="star-btn" data-id="rw_resp_61_exam_physio_q01" onclick="toggleStar(this)" title="Star this question">☆</button>
+    <button class="sticky-note-btn" data-qid="rw_resp_61_exam_physio_q01" onclick="toggleNote(this)" title="Sticky note">&#128221;</button>
+  </div>
+  <p class="q-text" dir="ltr">Define hypoxia and mention types</p>
+  <button class="show-answer-btn" onclick="showWrittenAnswer(this)" data-id="rw_resp_61_exam_physio_q01">&#128270; Show Answer</button>
+  <button class="gpt-btn" onclick="askGPT(this)">&#128172; Ask GPT</button>
+  <div class="answer-block" data-id="rw_resp_61_exam_physio_q01">
+    <div class="written-answer"><div class="w-part w-intro"><span class="w-text"><strong>Definition:</strong></span></div><div class="w-part"><span class="w-label">1)</span><span class="w-text">Decrease of oxygen supply to tissues<br><strong>4 Types of Hypoxia:</strong></span></div><div class="w-part"><span class="w-label">1)</span><span class="w-text">Hypoxic hypoxia: low arterial PO2 — defective blood oxygenation</span></div><div class="w-part"><span class="w-label">2)</span><span class="w-text">Anemic hypoxia: reduced total O2 content — decreased functioning hemoglobin</span></div><div class="w-part"><span class="w-label">3)</span><span class="w-text">Stagnant (ischemic) hypoxia: inadequate O2 delivery — decreased tissue blood<br>flow</span></div><div class="w-part"><span class="w-label">4)</span><span class="w-text">Histotoxic (cytotoxic) hypoxia: inability to utilize O2 — blocked cellular <br>oxidative enzymes<br><br>Conversation: a5fef6c0-2db6-4993-aaa2-387418624dc9 (turn 1)</span></div></div>
+    <div class="self-assess">
+      <button class="got-it-btn" onclick="selfAssess(this,true)" data-id="rw_resp_61_exam_physio_q01">&#10003; Got it</button>
+      <button class="missed-btn" onclick="selfAssess(this,false)" data-id="rw_resp_61_exam_physio_q01">&#10007; Missed</button>
+    </div>
+    <div class="explanation" dir="rtl"><h4 class="exp-h">المفهوم الرئيسي</h4><p>مصطلح <mark class="exp-term">Hypoxia</mark> يعني نقص إمداد الأكسجين إلى الأنسجة لتلبية احتياجاتها الحيوية.</p><h4 class="exp-h">الأنواع الأربعة</h4><p>نقص الأكسجة المرتبط بنقص الأكسجين <em class="exp-em">Hypoxic hypoxia</em>: ويحدث بسبب انخفاض ضغط  الأكسجين الشرياني <em class="exp-em">low arterial PO2</em>. نقص الأكسجة الأنيمي <em class="exp-em">Anemic hypoxia</em>: ويحدث نتيجة انخفاض محتوى الأكسجين الكلي بسبب نقص <strong>الهيموجلوبين الفعال</strong> <em class="exp-em">functioning hemoglobin</em>. نقص الأكسجة الركودي <em class="exp-em">Stagnant hypoxia</em>: ويحدث بسبب عدم كفاية تدفق الدم إلى  الأنسجة <em class="exp-em">decreased tissue blood flow</em>. نقص الأكسجة التسممي الخلوي <em class="exp-em">Histotoxic hypoxia</em>: وفيه تفشل الخلايا في استخدام الأكسجين المتاح بسبب تثبيط <strong>إنزيمات الأكسدة</strong> الخلوية __cellular oxidative  enzymes__. ==يتطلب علاج نقص الأكسجة تحديد نوعها بدقة، حيث أن إعطاء الأكسجين وحده لا يكفي  في النوع التسممي أو الركودي==.</p></div>
+  </div>
+</div>
+</section>
+<section id="section-57" class="exam-section">
+  <h2 class="section-title">
+    إند موديول 57
+    <span class="q-count">(2 questions)</span>
+    <div class="section-progress-bar">
+      <div class="section-progress-fill" id="secfill-57" style="width:0%"></div>
+    </div>
+  </h2>
+  
+<div class="qcard" data-id="rw_end_mod_57_physio_q01" data-type="written" data-idx="2" data-subject="Physiology">
+<canvas class="qcard-canvas" data-qid="rw_end_mod_57_physio_q01"></canvas>
+<div class="sticky-note" data-qid="rw_end_mod_57_physio_q01">
+  <div class="sticky-note-header"><button class="note-close-btn" onclick="closeNote(this)">&#215;</button></div>
+  <canvas class="sticky-canvas" data-qid="rw_end_mod_57_physio_q01" tabindex="0"></canvas>
+</div>
+  <div class="qcard-header">
+    <span class="q-num">Q2</span>
+    <span class="type-badge type-written">Written</span>
+    <button class="star-btn" data-id="rw_end_mod_57_physio_q01" onclick="toggleStar(this)" title="Star this question">☆</button>
+    <button class="sticky-note-btn" data-qid="rw_end_mod_57_physio_q01" onclick="toggleNote(this)" title="Sticky note">&#128221;</button>
+  </div>
+  <p class="q-text" dir="ltr">3- components of respiratory membrane.</p>
+  <button class="show-answer-btn" onclick="showWrittenAnswer(this)" data-id="rw_end_mod_57_physio_q01">&#128270; Show Answer</button>
+  <button class="gpt-btn" onclick="askGPT(this)">&#128172; Ask GPT</button>
+  <div class="answer-block" data-id="rw_end_mod_57_physio_q01">
+    <div class="written-answer"><div class="w-part w-intro"><span class="w-text"><strong>6 Layers of Respiratory Membrane:</strong></span></div><div class="w-part"><span class="w-label">1)</span><span class="w-text">Fluid layer lining alveolus — contains surfactant</span></div><div class="w-part"><span class="w-label">2)</span><span class="w-text">Alveolar epithelium — 1 layer of epithelial cells</span></div><div class="w-part"><span class="w-label">3)</span><span class="w-text">Epithelial basement membrane</span></div><div class="w-part"><span class="w-label">4)</span><span class="w-text">Thin interstitial space</span></div><div class="w-part"><span class="w-label">5)</span><span class="w-text">Capillary basement membrane</span></div><div class="w-part"><span class="w-label">6)</span><span class="w-text">Capillary endothelium</span></div></div>
+    <div class="self-assess">
+      <button class="got-it-btn" onclick="selfAssess(this,true)" data-id="rw_end_mod_57_physio_q01">&#10003; Got it</button>
+      <button class="missed-btn" onclick="selfAssess(this,false)" data-id="rw_end_mod_57_physio_q01">&#10007; Missed</button>
+    </div>
+    <div class="explanation" dir="rtl"><h4 class="exp-h">تركيب الغشاء التنفسي</h4><p>يعتبر <mark class="exp-term">Respiratory membrane</mark> هو الحاجز الفاصل بين الهواء في الحويصلات والدم  في الشعيرات الدموية. يتكون هذا الغشاء من 6 طبقات متتالية لضمان كفاءة التبادل الغازي. الطبقة الأولى هي طبقة سائلة مبطنة للحويصلة تحتوي على مادة <em class="exp-em">surfactant</em>. الطبقة الثانية هي <strong>النسيج الطلائي الحويصلي</strong> <em class="exp-em">Alveolar epithelium</em> المكون من طبقة خلوية واحدة. الطبقة الثالثة هي الغشاء القاعدي الطلائي <em class="exp-em">Epithelial basement membrane</em>. يأتي بعد ذلك الفراغ البيني الرقيق <em class="exp-em">Thin interstitial space</em>. وأخيراً جدار الشعيرة الدموية المكون من <em class="exp-em">Capillary basement membrane</em> و الغشاء المبطن للشعيرة <em class="exp-em">Capillary endothelium</em>. <div class="exp-q">زيادة سمك هذا الغشاء في الحالات المرضية يعيق سرعة انتشار الغازات بشكل مباشر</div>.</p></div>
+  </div>
+</div>
+<div class="qcard" data-id="rw_end_mod_57_physio_q02" data-type="written" data-idx="3" data-subject="Physiology">
+<canvas class="qcard-canvas" data-qid="rw_end_mod_57_physio_q02"></canvas>
+<div class="sticky-note" data-qid="rw_end_mod_57_physio_q02">
+  <div class="sticky-note-header"><button class="note-close-btn" onclick="closeNote(this)">&#215;</button></div>
+  <canvas class="sticky-canvas" data-qid="rw_end_mod_57_physio_q02" tabindex="0"></canvas>
+</div>
+  <div class="qcard-header">
+    <span class="q-num">Q3</span>
+    <span class="type-badge type-written">Written</span>
+    <button class="star-btn" data-id="rw_end_mod_57_physio_q02" onclick="toggleStar(this)" title="Star this question">☆</button>
+    <button class="sticky-note-btn" data-qid="rw_end_mod_57_physio_q02" onclick="toggleNote(this)" title="Sticky note">&#128221;</button>
+  </div>
+  <p class="q-text" dir="ltr">4- Define cyanosis and mention types.</p>
+  <button class="show-answer-btn" onclick="showWrittenAnswer(this)" data-id="rw_end_mod_57_physio_q02">&#128270; Show Answer</button>
+  <button class="gpt-btn" onclick="askGPT(this)">&#128172; Ask GPT</button>
+  <div class="answer-block" data-id="rw_end_mod_57_physio_q02">
+    <div class="written-answer"><div class="w-part w-intro"><span class="w-text"><strong>Definition:</strong></span></div><div class="w-part"><span class="w-label">1)</span><span class="w-text">Bluish discoloration of skin + mucous membranes</span></div><div class="w-part"><span class="w-label">2)</span><span class="w-text">Cause: abnormal increase in reduced Hb (&gt; 5 gm/100 cc)<br><strong>2 Types:</strong></span></div><div class="w-part"><span class="w-label">1)</span><span class="w-text">Central cyanosis: generalized — due to hypoxemia (hypoxic hypoxia + <br>generalized stagnant hypoxia)</span></div><div class="w-part"><span class="w-label">2)</span><span class="w-text">Peripheral cyanosis: localized — due to reduced blood flow / excessive <br>tissue O2 extraction (localized stagnant hypoxia)</span></div></div>
+    <div class="self-assess">
+      <button class="got-it-btn" onclick="selfAssess(this,true)" data-id="rw_end_mod_57_physio_q02">&#10003; Got it</button>
+      <button class="missed-btn" onclick="selfAssess(this,false)" data-id="rw_end_mod_57_physio_q02">&#10007; Missed</button>
+    </div>
+    <div class="explanation" dir="rtl"><h4 class="exp-h">تعريف الزرقة</h4><p>تُعرف الزرقة أو <mark class="exp-term">Cyanosis</mark> بأنها تلون الجلد والأغشية المخاطية باللون الأزرق. تحدث الزرقة بسبب الزيادة غير الطبيعية في نسبة الهيموجلوبين المختزل __reduced  Hb__ لتتجاوز 5 جرام/100 مل دم.</p><h4 class="exp-h">أنواع الزرقة</h4><p>النوع الأول هو الزرقة المركزية <em class="exp-em">Central cyanosis</em> وتكون <strong>عامة في الجسم</strong>  بسبب نقص أكسجة الدم <em class="exp-em">hypoxemia</em>. النوع الثاني هو الزرقة الطرفية <em class="exp-em">Peripheral cyanosis</em> وتكون <strong>موضعية</strong> وتنتج  عن نقص تدفق الدم أو زيادة استخلاص الأكسجين بواسطة الأنسجة __excessive tissue O2 extraction__. ==لا تظهر الزرقة في حالات الأنيميا الشديدة أو التسمم بأول أكسيد الكربون بسبب  نقص الهيموجلوبين الفعال==.</p></div>
+  </div>
+</div>
+</section></main>
+
+<script>
+// ── State ────────────────────────────────────────────────────────────────────
+const FILE_ID = "resp_prev_written_physio";
+const STORAGE_KEY = "exam_os_v1_" + FILE_ID;
+const SHARED_KEY   = "exam_os_settings_v1";   // shared across ALL files
+const SETTINGS_KEYS = ["theme","fontSize","contentWidth","fontFamily","expColor"];
+const SECTIONS = [{"slug": "61", "title": "امتحان 61", "question_ids": ["rw_resp_61_exam_physio_q01"]}, {"slug": "57", "title": "إند موديول 57", "question_ids": ["rw_end_mod_57_physio_q01", "rw_end_mod_57_physio_q02"]}];
+
+const DEFAULT_STATE = {
+  version: 1,
+  mode: "study",
+  theme: "dark",
+  showExplanations: true,
+  filter: "all",
+  answers: {},
+  starred: [],
+  fontSize: "m",
+  contentWidth: 880,
+  fontFamily: "amiri",
+  expColor: "default",
+};
+
+const FONT_MAP = {
+  amiri:   "'Amiri','Noto Naskh Arabic',Georgia,serif",
+  noto:    "'Noto Naskh Arabic','Segoe UI',Tahoma,serif",
+  cairo:   "'Cairo',sans-serif",
+  tajawal: "'Tajawal',sans-serif",
+  system:  "'Segoe UI',Tahoma,Arial,sans-serif",
+};
+const EXP_COLOR_MAP = {
+  default: "",               // use theme CSS default
+  warm:    "#d4a96a",
+  cyan:    "#7ec8e3",
+  gold:    "#e8c547",
+  mint:    "#6fcf97",
+};
+
+let state = DEFAULT_STATE;
+
+function _loadShared() {
+  try { return JSON.parse(localStorage.getItem(SHARED_KEY) || "{}"); } catch(e) { return {}; }
+}
+function _saveShared() {
+  var s = {};
+  SETTINGS_KEYS.forEach(function(k) { s[k] = state[k]; });
+  try { localStorage.setItem(SHARED_KEY, JSON.stringify(s)); } catch(e) {}
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed.version === 1) {
+        state = Object.assign({}, DEFAULT_STATE, parsed);
+      } else {
+        state = Object.assign({}, DEFAULT_STATE);
+      }
+    } else {
+      state = Object.assign({}, DEFAULT_STATE);
+    }
+  } catch(e) {
+    state = Object.assign({}, DEFAULT_STATE);
+  }
+  // Overlay shared settings (theme, fontSize, etc.) from other files
+  var shared = _loadShared();
+  SETTINGS_KEYS.forEach(function(k) { if (shared[k] !== undefined) state[k] = shared[k]; });
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+  _saveShared();
+}
+
+// ── Fixed header height → main padding ───────────────────────────────────
+function updateMainPadding() {
+  var h = document.getElementById("fixed-header").offsetHeight;
+  var offset = h + 10;
+  document.querySelector("main").style.paddingTop = offset + "px";
+  document.querySelectorAll(".exam-section").forEach(function(s) {
+    s.style.scrollMarginTop = offset + "px";
+  });
+}
+
+function toggleStats() {
+  document.getElementById("stats-panel").classList.toggle("open");
+  updateMainPadding();
+}
+
+function toggleSettings() {
+  document.getElementById("settings-panel").classList.toggle("open");
+  updateMainPadding();
+}
+
+// ── Settings ──────────────────────────────────────────────────────────────────
+function applySettings() {
+  // Font size
+  document.body.setAttribute("data-fs", state.fontSize);
+  document.querySelectorAll(".fs-btn").forEach(function(b) {
+    b.classList.toggle("active", b.dataset.fs === state.fontSize);
+  });
+  // Content width
+  document.body.style.setProperty("--content-width", state.contentWidth + "px");
+  var wr = document.getElementById("width-range");
+  var wd = document.getElementById("width-display");
+  if (wr) wr.value = state.contentWidth;
+  if (wd) wd.textContent = state.contentWidth + "px";
+  // Font family
+  document.body.style.setProperty("--arabic-font", FONT_MAP[state.fontFamily] || FONT_MAP.amiri);
+  var fsel = document.getElementById("font-family-sel");
+  if (fsel) fsel.value = state.fontFamily;
+  // Explanation color
+  var col = EXP_COLOR_MAP[state.expColor];
+  if (col) document.body.style.setProperty("--exp-color", col);
+  else      document.body.style.removeProperty("--exp-color");
+  document.querySelectorAll(".color-sw").forEach(function(b) {
+    b.classList.toggle("active", b.dataset.c === state.expColor);
+  });
+}
+
+function changeFontSize(fs) {
+  state.fontSize = fs;
+  applySettings();
+  saveState();
+}
+
+function changeWidth(input) {
+  state.contentWidth = parseInt(input.value);
+  document.body.style.setProperty("--content-width", state.contentWidth + "px");
+  var wd = document.getElementById("width-display");
+  if (wd) wd.textContent = state.contentWidth + "px";
+  saveState();
+  updateMainPadding();
+}
+
+function changeFont(sel) {
+  state.fontFamily = sel.value;
+  document.body.style.setProperty("--arabic-font", FONT_MAP[sel.value] || FONT_MAP.amiri);
+  saveState();
+}
+
+function changeExpColor(c) {
+  state.expColor = c;
+  var col = EXP_COLOR_MAP[c];
+  if (col) document.body.style.setProperty("--exp-color", col);
+  else      document.body.style.removeProperty("--exp-color");
+  document.querySelectorAll(".color-sw").forEach(function(b) {
+    b.classList.toggle("active", b.dataset.c === c);
+  });
+  saveState();
+}
+
+// ── Initialise on load ───────────────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", function() {
+  loadState();
+  applyTheme(state.theme);
+  applyMode(state.mode);
+  restoreAnswers();
+  restoreStars();
+  updateAllProgress();
+  applyFilter(state.filter);
+  if (!state.showExplanations && state.mode === "study") hideExplanations();
+  document.getElementById("theme-select").value = state.theme;
+  applySettings();
+  updateMainPadding();
+  if (window.ResizeObserver) {
+    new ResizeObserver(updateMainPadding).observe(document.getElementById("fixed-header"));
+  } else {
+    window.addEventListener("resize", updateMainPadding);
+  }
+  initAnnotateSystem();
+});
+
+// ── Mode ─────────────────────────────────────────────────────────────────────
+function applyMode(mode) {
+  document.body.classList.remove("mode-study", "mode-test", "mode-marker", "mode-annotate",
+                                  "tool-pen", "tool-erase", "tool-pan");
+  document.body.classList.add("mode-" + mode);
+  if (mode === "annotate") { document.body.classList.add("tool-pen"); _hideSelPopup(); }
+
+  ["study","test","marker","annotate"].forEach(function(m) {
+    var btn = document.getElementById("mode-btn-" + m);
+    if (btn) btn.classList.toggle("active", m === mode);
+  });
+
+  if (mode === "study" && state.showExplanations) {
+    showExplanations();
+  } else if (mode === "test") {
+    // Leaving study mode: remove .visible from unanswered MCQ cards so the
+    // answer-block doesn't leak through into test mode
+    document.querySelectorAll(".qcard[data-type='mcq']:not([data-answered]) .answer-block")
+      .forEach(function(el) { el.classList.remove("visible"); });
+  }
+}
+
+function setMode(mode) {
+  state.mode = mode;
+  applyMode(mode);
+  saveState();
+}
+
+// ── Explanations toggle (study mode only) ────────────────────────────────────
+function toggleExplanations() {
+  state.showExplanations = !state.showExplanations;
+  if (state.showExplanations) showExplanations(); else hideExplanations();
+  updateExpToggleLabel();
+  saveState();
+}
+
+function showExplanations() {
+  // Auto-reveal all answer blocks (MCQ + written) in Study mode
+  document.querySelectorAll(".qcard .answer-block").forEach(function(el) {
+    el.classList.add("visible");
+  });
+}
+
+function hideExplanations() {
+  document.querySelectorAll(".qcard[data-type=mcq] .answer-block").forEach(function(el) {
+    if (!el.closest(".qcard").dataset.answered) el.classList.remove("visible");
+  });
+}
+
+
+// ── MCQ interaction (test mode) ───────────────────────────────────────────────
+document.addEventListener("click", function(e) {
+  var opt = e.target.closest(".opt");
+  if (!opt) return;
+  var card = opt.closest(".qcard");
+  if (!card || card.dataset.type !== "mcq") return;
+  if (card.dataset.answered) return;
+  if (!document.body.classList.contains("mode-test")) return;
+
+  var chosen  = opt.dataset.letter;
+  var correct = card.dataset.correct;
+  var isRight = chosen === correct;
+
+  // Mark options
+  card.querySelectorAll(".opt").forEach(function(o) {
+    o.style.pointerEvents = "none";
+    if (o.dataset.letter === correct) o.classList.add("opt-correct");
+    if (o.dataset.letter === chosen && !isRight) o.classList.add("opt-wrong");
+  });
+
+  card.dataset.answered = "1";
+  var qid = card.dataset.id;
+  state.answers[qid] = { chosen: chosen, correct: isRight, timestamp: Date.now() };
+  saveState();
+  updateAllProgress();
+  applyFilter(state.filter);
+
+  // Show answer reveal block (explanation stays hidden via CSS until Show Explanation clicked)
+  var ab = card.querySelector(".answer-block");
+  if (ab) ab.classList.add("visible");
+});
+
+// ── Show explanation (test mode, after answering) ─────────────────────────────
+function showExplanation(btn) {
+  var card = btn.closest(".qcard");
+  var isRevealed = !!card.querySelector(".explanation-ar.exp-revealed");
+  card.querySelectorAll(".explanation-ar, .exp-label").forEach(function(el) {
+    el.classList.toggle("exp-revealed", !isRevealed);
+  });
+  btn.innerHTML = isRevealed
+    ? "&#128161; Show Explanation"
+    : "&#128065;&#65039; Hide Explanation";
+}
+
+// ── Written question ──────────────────────────────────────────────────────────
+function showWrittenAnswer(btn) {
+  var card = btn.closest(".qcard");
+  var ab = card.querySelector(".answer-block");
+  if (ab) ab.classList.add("visible");
+  btn.style.display = "none";
+}
+
+function selfAssess(btn, isCorrect) {
+  var card = btn.closest(".qcard");
+  var qid  = card.dataset.id;
+  state.answers[qid] = { chosen: isCorrect ? "correct" : "wrong",
+                          correct: isCorrect, timestamp: Date.now() };
+  card.dataset.answered = "1";
+  card.querySelector(".self-assess").innerHTML =
+    isCorrect ? '<span style="color:var(--got-it)">✓ Marked correct</span>'
+              : '<span style="color:var(--missed)">✗ Marked wrong</span>';
+  saveState();
+  updateAllProgress();
+  applyFilter(state.filter);
+}
+
+// ── Matching question ─────────────────────────────────────────────────────────
+function checkMatching(btn) {
+  var card = btn.closest(".qcard");
+  var rows = card.querySelectorAll(".match-row");
+  var allCorrect = true;
+  rows.forEach(function(row) {
+    var sel = row.querySelector(".match-select");
+    var correct = row.dataset.correct;
+    row.classList.remove("match-correct","match-wrong");
+    if (sel.value === correct) {
+      row.classList.add("match-correct");
+    } else {
+      row.classList.add("match-wrong");
+      allCorrect = false;
+    }
+    sel.disabled = true;
+  });
+  btn.style.display = "none";
+  var qid = card.dataset.id;
+  state.answers[qid] = { chosen: "checked", correct: allCorrect, timestamp: Date.now() };
+  card.dataset.answered = "1";
+  var ab = card.querySelector(".answer-block");
+  if (ab) ab.classList.add("visible");
+  saveState();
+  updateAllProgress();
+  applyFilter(state.filter);
+}
+
+// ── Stars ─────────────────────────────────────────────────────────────────────
+function toggleStar(btn) {
+  var qid = btn.dataset.id;
+  var idx = state.starred.indexOf(qid);
+  if (idx === -1) {
+    state.starred.push(qid);
+    btn.textContent = "★";
+    btn.classList.add("starred");
+    btn.closest(".qcard").classList.add("starred-card");
+  } else {
+    state.starred.splice(idx, 1);
+    btn.textContent = "☆";
+    btn.classList.remove("starred");
+    btn.closest(".qcard").classList.remove("starred-card");
+  }
+  saveState();
+  updateFilterCounts();
+  if (state.filter === "starred") applyFilter("starred");
+}
+
+function restoreStars() {
+  state.starred.forEach(function(qid) {
+    var card = document.querySelector('.qcard[data-id="' + qid + '"]');
+    if (!card) return;
+    var btn = card.querySelector(".star-btn");
+    if (btn) { btn.textContent = "★"; btn.classList.add("starred"); }
+    card.classList.add("starred-card");
+  });
+}
+
+// ── Restore answers from localStorage ────────────────────────────────────────
+function restoreAnswers() {
+  Object.entries(state.answers).forEach(function([qid, ans]) {
+    var card = document.querySelector('.qcard[data-id="' + qid + '"]');
+    if (!card) return;
+    card.dataset.answered = "1";
+    var qtype = card.dataset.type;
+
+    if (qtype === "mcq") {
+      var correct = card.dataset.correct;
+      card.querySelectorAll(".opt").forEach(function(o) {
+        o.style.pointerEvents = "none";
+        if (o.dataset.letter === correct) o.classList.add("opt-correct");
+        if (o.dataset.letter === ans.chosen && ans.chosen !== correct)
+          o.classList.add("opt-wrong");
+      });
+      var ab = card.querySelector(".answer-block");
+      if (ab) ab.classList.add("visible");
+    } else if (qtype === "written") {
+      var ab = card.querySelector(".answer-block");
+      if (ab) ab.classList.add("visible");
+      var sa = card.querySelector(".show-answer-btn");
+      if (sa) sa.style.display = "none";
+      var assess = card.querySelector(".self-assess");
+      if (assess) assess.innerHTML = ans.correct
+        ? '<span style="color:var(--got-it)">✓ Marked correct</span>'
+        : '<span style="color:var(--missed)">✗ Marked wrong</span>';
+    } else if (qtype === "matching") {
+      var ab = card.querySelector(".answer-block");
+      if (ab) ab.classList.add("visible");
+    }
+  });
+}
+
+// ── Progress ──────────────────────────────────────────────────────────────────
+function getSectionStats(sectionQIds) {
+  var answered = sectionQIds.filter(function(id) { return state.answers[id]; });
+  var correct  = answered.filter(function(id) { return state.answers[id] && state.answers[id].correct; });
+  return { total: sectionQIds.length, answered: answered.length, correct: correct.length };
+}
+
+function updateAllProgress() {
+  var totalQ = 0, totalAns = 0, totalCor = 0;
+  SECTIONS.forEach(function(sec) {
+    var s = getSectionStats(sec.question_ids);
+    totalQ   += s.total;
+    totalAns += s.answered;
+    totalCor += s.correct;
+
+    // Update nav button progress
+    var btn = document.getElementById("navbtn-" + sec.slug);
+    if (btn) {
+      var prog = btn.querySelector(".sec-prog");
+      if (prog) prog.textContent = s.answered + "/" + s.total;
+    }
+
+    // Update section progress bar
+    var fill = document.getElementById("secfill-" + sec.slug);
+    if (fill) {
+      fill.style.width = (s.total > 0 ? (s.answered / s.total * 100) : 0) + "%";
+    }
+  });
+
+  // Overall stats
+  document.getElementById("stat-total").textContent   = totalQ;
+  document.getElementById("stat-ans").textContent     = totalAns;
+  document.getElementById("stat-correct").textContent = totalCor;
+  document.getElementById("stat-wrong").textContent   = totalAns - totalCor;
+  var pct = totalQ > 0 ? Math.round(totalAns / totalQ * 100) : 0;
+  document.getElementById("stat-pct").textContent     = pct + "%";
+
+  updateFilterCounts();
+}
+
+// ── Filters ───────────────────────────────────────────────────────────────────
+function updateFilterCounts() {
+  var all       = document.querySelectorAll(".qcard").length;
+  var answered  = Object.keys(state.answers).length;
+  var correct   = Object.values(state.answers).filter(function(a){return a.correct;}).length;
+  var wrong     = answered - correct;
+  var starred   = state.starred.length;
+  var unans     = all - answered;
+
+  document.getElementById("fc-all").textContent      = all;
+  document.getElementById("fc-unanswered").textContent = unans;
+  document.getElementById("fc-correct").textContent  = correct;
+  document.getElementById("fc-wrong").textContent    = wrong;
+  document.getElementById("fc-starred").textContent  = starred;
+}
+
+function applyFilter(filter) {
+  state.filter = filter;
+  document.querySelectorAll(".filter-btn").forEach(function(btn) {
+    btn.classList.toggle("active", btn.dataset.filter === filter);
+  });
+  var retryBtn = document.getElementById("retry-btn");
+  if (retryBtn) retryBtn.style.display = (filter === "wrong" || filter === "starred") ? "inline-block" : "none";
+
+  document.querySelectorAll(".qcard").forEach(function(card) {
+    var qid = card.dataset.id;
+    var ans = state.answers[qid];
+    var show = false;
+    if (filter === "all")          show = true;
+    else if (filter === "unanswered") show = !ans;
+    else if (filter === "correct") show = !!(ans && ans.correct);
+    else if (filter === "wrong")   show = !!(ans && !ans.correct);
+    else if (filter === "starred") show = state.starred.includes(qid);
+    card.classList.toggle("filtered-out", !show);
+  });
+
+  saveState();
+  updateFilterCounts();
+}
+
+// ── Theme ─────────────────────────────────────────────────────────────────────
+function applyTheme(theme) {
+  document.body.classList.remove("theme-light","theme-sepia","theme-hc","theme-dark");
+  document.body.classList.add("theme-" + theme);
+}
+
+function changeTheme(sel) {
+  state.theme = sel.value;
+  applyTheme(state.theme);
+  saveState();
+}
+
+// ── Cross-file settings sync ──────────────────────────────────────────────────
+window.addEventListener("storage", function(e) {
+  if (e.key !== SHARED_KEY || !e.newValue) return;
+  try {
+    var shared = JSON.parse(e.newValue);
+    SETTINGS_KEYS.forEach(function(k) { if (shared[k] !== undefined) state[k] = shared[k]; });
+    applyTheme(state.theme);
+    applySettings();
+    var ts = document.getElementById("theme-select");
+    if (ts) ts.value = state.theme;
+  } catch(err) {}
+});
+
+// ── Fullscreen ────────────────────────────────────────────────────────────────
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  } else {
+    document.exitFullscreen();
+  }
+}
+document.addEventListener('fullscreenchange', () => {
+  const btn = document.getElementById('fs-btn');
+  if (!btn) return;
+  btn.innerHTML = document.fullscreenElement ? '&#x2716; Exit Full' : '&#x26F6; Fullscreen';
+});
+
+// ── Reset (full wipe) ─────────────────────────────────────────────────────────
+function resetProgress() {
+  if (!confirm("Full Reset: clears answers, stars, AND all settings. Are you sure?")) return;
+  state = Object.assign({}, DEFAULT_STATE);
+  saveState();
+  location.reload();
+}
+
+// ── Restart exam (keeps settings + stars, clears answers only) ────────────────
+function restartExam() {
+  if (!confirm("New Attempt: clears all answers but keeps your settings, theme, and starred questions.")) return;
+  state.answers = {};
+  state.filter  = "all";
+  saveState();
+  location.reload();
+}
+
+// ── Retry filtered questions (wrong or starred) ───────────────────────────────
+function retryFiltered() {
+  var label = state.filter === "starred" ? "starred" : "wrong";
+  var cards = Array.from(document.querySelectorAll(".qcard")).filter(function(c) {
+    return !c.classList.contains("filtered-out");
+  });
+  if (!cards.length) return;
+  var n = cards.length;
+  if (!confirm("Reset " + n + " " + label + " question" + (n > 1 ? "s" : "") + "? Their answers will be cleared.")) return;
+
+  cards.forEach(function(card) {
+    var qid = card.dataset.id;
+    delete state.answers[qid];
+    delete card.dataset.answered;
+
+    // MCQ: remove option highlights, re-enable pointer events
+    card.querySelectorAll(".opt").forEach(function(o) {
+      o.classList.remove("opt-correct", "opt-wrong");
+      o.style.pointerEvents = "";
+    });
+
+    // Hide answer block
+    var ab = card.querySelector(".answer-block");
+    if (ab) ab.classList.remove("visible");
+
+    // Hide explanation
+    card.querySelectorAll(".explanation-ar, .exp-label").forEach(function(el) {
+      el.classList.remove("exp-revealed");
+    });
+    card.querySelectorAll(".show-exp-btn").forEach(function(btn) {
+      btn.innerHTML = "&#128161; Show Explanation";
+    });
+
+    // Written: restore Show Answer button
+    var showAnsBtn = card.querySelector(".show-answer-btn");
+    if (showAnsBtn) showAnsBtn.style.display = "";
+
+    // Written: restore self-assess buttons
+    var sa = card.querySelector(".self-assess");
+    if (sa) {
+      sa.innerHTML =
+        '<button class="got-it-btn" onclick="selfAssess(this,true)" data-id="' + qid + '">&#10003; Got it</button>' +
+        '<button class="missed-btn" onclick="selfAssess(this,false)" data-id="' + qid + '">&#10007; Missed</button>';
+    }
+
+    // Matching: re-enable selects + show check button
+    card.querySelectorAll(".match-row").forEach(function(row) {
+      row.classList.remove("match-correct", "match-wrong");
+      var sel = row.querySelector(".match-select");
+      if (sel) sel.disabled = false;
+    });
+    var checkBtn = card.querySelector(".check-match-btn");
+    if (checkBtn) checkBtn.style.display = "";
+  });
+
+  saveState();
+  updateAllProgress();
+  applyFilter(state.filter);
+}
+
+// ── Ask GPT ───────────────────────────────────────────────────────────────────
+function askGPT(btn) {
+  var card = btn.closest('.qcard');
+  var qtext = (card.querySelector('.q-text') || {}).innerText || '';
+  var subject = card.dataset.subject || 'Blood Medicine';
+  var qtype = card.dataset.type || 'mcq';
+
+  var prompt = '';
+  if (qtype === 'mcq') {
+    var opts = '';
+    card.querySelectorAll('.opt').forEach(function(o) {
+      opts += o.innerText.trim() + '\n';
+    });
+    prompt = 'أنت مدرس متخصص في ' + subject + '.\n\n'
+           + 'سؤال امتحان:\n' + qtext + '\n\n'
+           + 'الاختيارات:\n' + opts + '\n'
+           + 'اشرح:\n'
+           + '1. الإجابة الصحيحة وليه؟\n'
+           + '2. ليه كل اختيار تاني غلط؟ (سطر لكل واحدة)\n\n'
+           + 'اكتب بالعامية المصرية مع الاصطلاحات الطبية بالإنجليزي.';
+  } else {
+    prompt = 'أنت مدرس متخصص في ' + subject + '.\n\n'
+           + 'سؤال مقالي:\n' + qtext + '\n\n'
+           + 'اكتب إجابة امتحانية مختصرة:\n'
+           + '- كل نقطة في سطر منفصل\n'
+           + '- استخدم أرقام للنقاط\n'
+           + '- اذكر العدد صريحاً لو في "5 وظائف" مثلاً\n'
+           + '- keyword phrases مش جمل طويلة';
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(prompt).then(function() {
+      _showGptToast();
+      window.open('https://chat.openai.com/', '_blank');
+    }).catch(function() {
+      _gptFallback(prompt);
+    });
+  } else {
+    _gptFallback(prompt);
+  }
+}
+
+function _showGptToast() {
+  var t = document.createElement('div');
+  t.className = 'gpt-toast';
+  t.textContent = '\u2714 Prompt copied — paste in ChatGPT';
+  document.body.appendChild(t);
+  setTimeout(function() { t.remove(); }, 3000);
+}
+
+function _gptFallback(prompt) {
+  var ta = document.createElement('textarea');
+  ta.value = prompt;
+  ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  ta.remove();
+  _showGptToast();
+  window.open('https://chat.openai.com/', '_blank');
+}
+
+// ── Print protection ──────────────────────────────────────────────────────────
+// Block Ctrl+P / Cmd+P keyboard shortcut
+document.addEventListener("keydown", function(e) {
+  if ((e.ctrlKey || e.metaKey) && (e.key === "p" || e.key === "P")) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}, true);
+
+// beforeprint fires even from browser menu — hide body immediately
+window.addEventListener("beforeprint", function() {
+  document.documentElement.style.display = "none";
+});
+window.addEventListener("afterprint", function() {
+  document.documentElement.style.display = "";
+});
+
+// ── Annotate system ──────────────────────────────────────────────────────────
+const ANN_KEY = STORAGE_KEY + '_ann';
+var annTool = 'pen', annColor = '#e74c3c', annWidth = 3;
+var annIsDrawing = false, annCurrentStroke = null, annLastX = 0, annLastY = 0;
+var THROTTLE_SQ = 9, ERASE_R = 20, PALM_W = 50;
+var annPalmReject = true;          // palm rejection on by default
+var annSmooth = 0.8;               // stroke smoothing 0 (off) → 1 (full bezier)
+var annScrollY = null;             // reference y for pan-tool scroll
+var _scrollV = 0;                  // scroll velocity (px/frame) for inertia
+var _scrollRaf = null;             // RAF handle for inertia animation
+var ANN_CFG_KEY = ANN_KEY + '_cfg'; // persists rendering settings (smooth, palmReject)
+var annCanvases = {}, annStrokes = {}, annUndoStacks = {}, annRafQ = {};
+
+function _loadAnns() {
+  try { return JSON.parse(localStorage.getItem(ANN_KEY) || '{}'); } catch(e) { return {}; }
+}
+function _saveAnn(qid) {
+  var anns = _loadAnns(); anns[qid] = anns[qid] || {};
+  anns[qid].strokes = annStrokes[qid] || [];
+  localStorage.setItem(ANN_KEY, JSON.stringify(anns));
+}
+function _schedRdraw(qid) {
+  if (annRafQ[qid]) return; annRafQ[qid] = true;
+  requestAnimationFrame(function() { _rdraw(qid); annRafQ[qid] = false; });
+}
+function _drawStroke(ctx, stroke, canvas) {
+  var pts = stroke.points;
+  if (!pts || !pts.length) return;
+  ctx.beginPath(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.strokeStyle = stroke.color; ctx.lineWidth = stroke.width;
+  var xp = function(i) { return pts[i].x * canvas.width; };
+  var yp = function(i) { return pts[i].y; }; // y is absolute pixels
+  ctx.moveTo(xp(0), yp(0));
+  if (pts.length < 3 || annSmooth < 0.01) {
+    // 0% smoothing → straight lines
+    for (var i = 1; i < pts.length; i++) ctx.lineTo(xp(i), yp(i));
+  } else {
+    // Parameterized midpoint bezier: blend factor = annSmooth * 0.5
+    // At annSmooth=1 → end = exact midpoint (full smoothing)
+    // At annSmooth=0.x → end pulled closer to control point (less rounding)
+    var s = annSmooth * 0.5;
+    for (var i = 0; i < pts.length - 2; i++) {
+      var cpx = xp(i+1), cpy = yp(i+1);
+      var nx = xp(i+2), ny = yp(i+2);
+      ctx.quadraticCurveTo(cpx, cpy, cpx + s * (nx - cpx), cpy + s * (ny - cpy));
+    }
+    ctx.lineTo(xp(pts.length-1), yp(pts.length-1));
+  }
+  ctx.stroke();
+}
+function _rdraw(qid) {
+  var c = annCanvases[qid]; if (!c) return;
+  c.ctx.clearRect(0, 0, c.canvas.width, c.canvas.height);
+  (annStrokes[qid] || []).forEach(function(stroke) { _drawStroke(c.ctx, stroke, c.canvas); });
+}
+function _rdrawWithCurrent(qid) {
+  var c = annCanvases[qid]; if (!c) return;
+  c.ctx.clearRect(0, 0, c.canvas.width, c.canvas.height);
+  (annStrokes[qid] || []).forEach(function(stroke) { _drawStroke(c.ctx, stroke, c.canvas); });
+  if (annCurrentStroke && annCurrentStroke.points.length > 1)
+    _drawStroke(c.ctx, annCurrentStroke, c.canvas);
+}
+function _onQcardResize(qcard) {
+  var cv = qcard.querySelector('.qcard-canvas'); if (!cv) return;
+  var qid = cv.dataset.qid;
+  var c = annCanvases[qid]; if (!c) return;
+  var changed = false;
+  if (c.canvas.width !== qcard.offsetWidth) { c.canvas.width = qcard.offsetWidth; changed = true; }
+  var fh = qcard.scrollHeight;
+  if (fh > c.canvas.height) { c.canvas.height = fh; changed = true; } // only grow — never shrink
+  if (changed) _schedRdraw(qid);
+}
+function initAnnotateSystem() {
+  var anns = _loadAnns();
+  // Restore annotation rendering settings
+  var cfg = _loadAnnCfg();
+  if (cfg.smooth !== undefined) annSmooth = cfg.smooth;
+  if (cfg.palmReject !== undefined) annPalmReject = cfg.palmReject;
+  // Sync UI controls
+  var smR = document.getElementById('ann-smooth-range');
+  var smD = document.getElementById('ann-smooth-display');
+  if (smR) smR.value = Math.round(annSmooth * 100);
+  if (smD) smD.textContent = Math.round(annSmooth * 100) + '%';
+  var prB = document.getElementById('palm-reject-btn');
+  if (prB) {
+    prB.innerHTML = '&#128586; Palm Reject: ' + (annPalmReject ? 'ON' : 'OFF');
+    prB.classList.toggle('active', annPalmReject);
+  }
+  document.querySelectorAll('.qcard-canvas').forEach(function(canvas) {
+    var qid = canvas.dataset.qid;
+    var qcard = canvas.closest('.qcard');
+    canvas.width = qcard.offsetWidth; canvas.height = qcard.scrollHeight;
+    var ctx = canvas.getContext('2d');
+    annCanvases[qid] = { canvas: canvas, ctx: ctx };
+    annStrokes[qid] = (anns[qid] && anns[qid].strokes) ? anns[qid].strokes : [];
+    _schedRdraw(qid);
+    canvas.addEventListener('pointerdown',  function(e) { _annDown(e, qid); });
+    canvas.addEventListener('pointermove',  function(e) { _annMove(e, qid); });
+    canvas.addEventListener('pointerup',    function(e) { _annUp(e, qid); });
+    canvas.addEventListener('pointerleave', function(e) { _annUp(e, qid); });
+    canvas.addEventListener('pointercancel',function(e) {
+      _cancelAnnStroke(qid);
+    });
+  });
+  if (window.ResizeObserver) {
+    var annRo = new ResizeObserver(function(entries) {
+      entries.forEach(function(e) { _onQcardResize(e.target); });
+    });
+    document.querySelectorAll('.qcard').forEach(function(qcard) { annRo.observe(qcard); });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (!document.body.classList.contains('mode-annotate')) return;
+    if (e.target.classList && e.target.classList.contains('sticky-canvas')) {
+      if (e.ctrlKey && !e.shiftKey && e.key === 'z') { e.preventDefault(); _noteUndo(e.target); }
+      if (e.ctrlKey && (e.key === 'y' || (e.shiftKey && e.key === 'z'))) { e.preventDefault(); _noteRedo(e.target); }
+      return;
+    }
+    if (e.ctrlKey && !e.shiftKey && e.key === 'z') { e.preventDefault(); annUndo(); }
+    if (e.ctrlKey && (e.key === 'y' || (e.shiftKey && e.key === 'z'))) { e.preventDefault(); annRedo(); }
+  });
+  _restoreHL();
+  _initSelPopup();
+}
+
+function _annDown(e, qid) {
+  if (e.pointerType === 'touch' && annPalmReject &&
+      ((e.width || 0) > PALM_W || (e.height || 0) > PALM_W)) return; // reject palm
+  e.preventDefault();
+  if (annTool === 'pan') { _stopInertia(); annScrollY = e.clientY; return; } // pan mode
+  annIsDrawing = true;
+  if (annTool === 'erase') return;
+  annCurrentStroke = { id: 'sk_' + Date.now(), color: annColor, width: annWidth, points: [] };
+  var c = annCanvases[qid].canvas, r = c.getBoundingClientRect();
+  annLastX = e.clientX - r.left; annLastY = e.clientY - r.top;
+  annCurrentStroke.points.push({ x: +(annLastX / c.width).toFixed(3), y: Math.round(annLastY) });
+}
+function _annMove(e, qid) {
+  if (e.pointerType === 'touch' && annPalmReject &&
+      ((e.width || 0) > PALM_W || (e.height || 0) > PALM_W)) return; // reject palm
+  if (annTool === 'pan' && annScrollY !== null) { // single-finger pan scroll
+    var dp = annScrollY - e.clientY;
+    _scrollV = dp * 0.7 + _scrollV * 0.3;
+    window.scrollBy(0, dp); annScrollY = e.clientY; e.preventDefault(); return;
+  }
+  if (annTool === 'erase' && annIsDrawing) { _annErase(e, qid); return; }
+  if (!annIsDrawing) return;
+  e.preventDefault();
+  var c = annCanvases[qid].canvas, r = c.getBoundingClientRect();
+  var px = e.clientX - r.left, py = e.clientY - r.top;
+  var dx = px - annLastX, dy = py - annLastY;
+  if (dx * dx + dy * dy < THROTTLE_SQ) return;
+  annLastX = px; annLastY = py;
+  annCurrentStroke.points.push({ x: +(px / c.width).toFixed(3), y: Math.round(py) });
+  _rdrawWithCurrent(qid);
+}
+function _annUp(e, qid) {
+  if (annTool === 'pan') {
+    if (annScrollY !== null) { _launchInertia(); annScrollY = null; }
+    return;
+  }
+  if (!annIsDrawing) return; annIsDrawing = false;
+  if (annCurrentStroke && annCurrentStroke.points.length > 1) {
+    annStrokes[qid] = annStrokes[qid] || [];
+    annStrokes[qid].push(annCurrentStroke);
+    annUndoStacks[qid] = []; _saveAnn(qid);
+  }
+  annCurrentStroke = null; _schedRdraw(qid);
+}
+function _annErase(e, qid) {
+  var c = annCanvases[qid]; if (!c) return;
+  var r = c.canvas.getBoundingClientRect();
+  var px = e.clientX - r.left, py = e.clientY - r.top;
+  var before = (annStrokes[qid] || []).length;
+  annStrokes[qid] = (annStrokes[qid] || []).filter(function(stroke) {
+    return !stroke.points.some(function(pt) {
+      var dx = pt.x * c.canvas.width - px, dy = pt.y - py; // pt.y is absolute pixels
+      return dx * dx + dy * dy < ERASE_R * ERASE_R;
+    });
+  });
+  if ((annStrokes[qid] || []).length !== before) { _schedRdraw(qid); _saveAnn(qid); }
+}
+function annUndo(qid) {
+  qid = qid || _centreQid();
+  if (!qid || !annStrokes[qid] || !annStrokes[qid].length) return;
+  annUndoStacks[qid] = annUndoStacks[qid] || [];
+  annUndoStacks[qid].push(annStrokes[qid].pop());
+  _schedRdraw(qid); _saveAnn(qid);
+}
+function annRedo(qid) {
+  qid = qid || _centreQid();
+  if (!qid || !annUndoStacks[qid] || !annUndoStacks[qid].length) return;
+  annStrokes[qid] = annStrokes[qid] || [];
+  annStrokes[qid].push(annUndoStacks[qid].pop());
+  _schedRdraw(qid); _saveAnn(qid);
+}
+function _centreQid() {
+  var best = null, bestD = Infinity;
+  document.querySelectorAll('.qcard-canvas').forEach(function(cv) {
+    var r = cv.getBoundingClientRect();
+    var d = Math.abs(r.top + r.height / 2 - window.innerHeight / 2);
+    if (d < bestD) { bestD = d; best = cv.dataset.qid; }
+  });
+  return best;
+}
+function _cancelAnnStroke(qid) {
+  if (annIsDrawing) { annIsDrawing = false; annCurrentStroke = null; _schedRdraw(qid); }
+}
+function _stopInertia() {
+  if (_scrollRaf) { cancelAnimationFrame(_scrollRaf); _scrollRaf = null; }
+  _scrollV = 0;
+}
+function _launchInertia() {
+  if (_scrollRaf) cancelAnimationFrame(_scrollRaf);
+  (function tick() {
+    if (Math.abs(_scrollV) < 0.5) { _scrollV = 0; return; }
+    window.scrollBy(0, _scrollV);
+    _scrollV *= 0.91; // friction — higher = more glide
+    _scrollRaf = requestAnimationFrame(tick);
+  })();
+}
+function _loadAnnCfg() {
+  try { return JSON.parse(localStorage.getItem(ANN_CFG_KEY) || '{}'); } catch(e) { return {}; }
+}
+function _saveAnnCfg() {
+  localStorage.setItem(ANN_CFG_KEY, JSON.stringify({ smooth: annSmooth, palmReject: annPalmReject }));
+}
+function togglePalmReject(btn) {
+  annPalmReject = !annPalmReject;
+  btn.innerHTML = '&#128586; Palm Reject: ' + (annPalmReject ? 'ON' : 'OFF');
+  btn.classList.toggle('active', annPalmReject);
+  _saveAnnCfg();
+}
+function changeAnnSmooth(input) {
+  annSmooth = +input.value / 100;
+  var d = document.getElementById('ann-smooth-display');
+  if (d) d.textContent = input.value + '%';
+  _saveAnnCfg();
+  // Live redraw: all existing strokes update instantly
+  Object.keys(annCanvases).forEach(function(qid) { _schedRdraw(qid); });
+}
+
+
+function toggleNote(btn) {
+  var qid = btn.dataset.qid;
+  var note = btn.closest('.qcard').querySelector('.sticky-note');
+  note.classList.toggle('visible');
+  if (note.classList.contains('visible')) _initSticky(qid, note);
+  btn.classList.toggle('has-note', note.classList.contains('visible'));
+}
+function closeNote(btn) { btn.closest('.sticky-note').classList.remove('visible'); }
+function _initSticky(qid, note) {
+  var sc = note.querySelector('.sticky-canvas');
+  if (sc._init) return;
+  sc.width = Math.max(note.clientWidth - 2, 50);
+  sc.height = Math.max(note.clientHeight - 26, 50);
+  var ctx = sc.getContext('2d');
+  var anns = _loadAnns();
+  sc._qid = qid; sc._ctx = ctx;
+  sc._strokes = (anns[qid] && anns[qid].note) ? anns[qid].note : [];
+  sc._undo = []; sc._color = '#e74c3c'; sc._width = 3; sc._tool = 'pen';
+  _rdrawNote(sc);
+  sc.addEventListener('pointerdown', function(e) { _nDown(e, sc); });
+  sc.addEventListener('pointermove', function(e) { _nMove(e, sc); });
+  sc.addEventListener('pointerup',   function(e) { _nUp(e, sc); });
+  // Inject mini toolbar into header (once)
+  var header = note.querySelector('.sticky-note-header');
+  if (!header.querySelector('.note-mini-bar')) {
+    var bar = document.createElement('div'); bar.className = 'note-mini-bar';
+    bar.innerHTML =
+      '<span class="nc act" style="background:#e74c3c" data-c="#e74c3c"></span>' +
+      '<span class="nc" style="background:#2980b9" data-c="#2980b9"></span>' +
+      '<span class="nc" style="background:#27ae60" data-c="#27ae60"></span>' +
+      '<span class="nc" style="background:#111111" data-c="#111111"></span>' +
+      '<input class="nw" type="range" min="1" max="8" value="3">' +
+      '<button class="ne">&#9998;</button>' +
+      '<button class="nu">&#8617;</button>';
+    header.insertBefore(bar, header.firstChild);
+    bar.querySelectorAll('.nc').forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        sc._color = dot.dataset.c; sc._tool = 'pen';
+        var neB = bar.querySelector('.ne');
+        neB.innerHTML = '&#9998;'; neB.className = 'ne';
+        bar.querySelectorAll('.nc').forEach(function(d) { d.classList.remove('act'); });
+        dot.classList.add('act');
+      });
+    });
+    var wIn = bar.querySelector('.nw');
+    if (wIn) wIn.addEventListener('input', function() { sc._width = +wIn.value; });
+    var neB = bar.querySelector('.ne');
+    if (neB) neB.addEventListener('click', function() {
+      sc._tool = sc._tool === 'erase' ? 'pen' : 'erase';
+      neB.innerHTML = sc._tool === 'erase' ? '&#11036;' : '&#9998;';
+      neB.className = sc._tool === 'erase' ? 'ne erasing' : 'ne';
+    });
+    var nuB = bar.querySelector('.nu');
+    if (nuB) nuB.addEventListener('click', function() { _noteUndo(sc); });
+  }
+  // Resize observer: sync canvas to note size
+  if (window.ResizeObserver) {
+    new ResizeObserver(function() {
+      var nW = Math.max(note.clientWidth - 2, 50);
+      var nH = Math.max(note.clientHeight - 26, 50);
+      if (sc.width === nW && sc.height === nH) return;
+      sc.width = nW; sc.height = nH;
+      _rdrawNote(sc);
+    }).observe(note);
+  }
+  sc._init = true;
+}
+function _rdrawNote(sc) {
+  sc._ctx.clearRect(0, 0, sc.width, sc.height);
+  (sc._strokes || []).forEach(function(stroke) { _drawStroke(sc._ctx, stroke, sc); });
+}
+function _nDown(e, sc) {
+  sc.focus(); e.preventDefault(); sc._drawing = true;
+  if (sc._tool === 'erase') return;
+  sc._cur = { id: 'n_' + Date.now(), color: sc._color, width: sc._width, points: [] };
+  var r = sc.getBoundingClientRect();
+  sc._cur.points.push({ x: +((e.clientX - r.left) / sc.width).toFixed(3), y: Math.round(e.clientY - r.top) });
+}
+function _nErase(e, sc) {
+  var r = sc.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top;
+  var before = sc._strokes.length;
+  sc._strokes = sc._strokes.filter(function(stroke) {
+    return !stroke.points.some(function(pt) {
+      var dx = pt.x * sc.width - px, dy = pt.y - py; // pt.y is absolute pixels
+      return dx * dx + dy * dy < ERASE_R * ERASE_R;
+    });
+  });
+  if (sc._strokes.length !== before) { _rdrawNote(sc); _saveNote(sc); }
+}
+function _nMove(e, sc) {
+  if (sc._tool === 'erase' && sc._drawing) { _nErase(e, sc); return; }
+  if (!sc._drawing) return;
+  e.preventDefault();
+  var r = sc.getBoundingClientRect();
+  sc._cur.points.push({ x: +((e.clientX - r.left) / sc.width).toFixed(3), y: Math.round(e.clientY - r.top) });
+  _rdrawNote(sc);
+  if (sc._cur.points.length > 1) _drawStroke(sc._ctx, sc._cur, sc);
+}
+function _nUp(e, sc) {
+  if (!sc._drawing) return; sc._drawing = false;
+  if (sc._cur && sc._cur.points.length > 1) {
+    sc._strokes.push(sc._cur); sc._undo = []; _saveNote(sc);
+  }
+  sc._cur = null; _rdrawNote(sc);
+}
+function _saveNote(sc) {
+  var anns = _loadAnns(); anns[sc._qid] = anns[sc._qid] || {};
+  anns[sc._qid].note = sc._strokes; localStorage.setItem(ANN_KEY, JSON.stringify(anns));
+}
+function _noteUndo(sc) {
+  if (!sc._strokes || !sc._strokes.length) return;
+  sc._undo = sc._undo || []; sc._undo.push(sc._strokes.pop());
+  _rdrawNote(sc); _saveNote(sc);
+}
+function _noteRedo(sc) {
+  if (!sc._undo || !sc._undo.length) return;
+  sc._strokes.push(sc._undo.pop()); _rdrawNote(sc); _saveNote(sc);
+}
+
+function setAnnTool(tool) {
+  annTool = tool;
+  document.body.className = document.body.className.replace(/\btool-\w+/g, '').trim();
+  document.body.classList.add('tool-' + tool);
+  document.querySelectorAll('.ann-tool-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.tool === tool);
+  });
+}
+function setAnnColor(el) {
+  annColor = el.dataset.color;
+  document.querySelectorAll('.ann-color').forEach(function(c) { c.classList.remove('active'); });
+  el.classList.add('active');
+}
+function setAnnWidth(input) { annWidth = +input.value; }
+function clearAllAnnotations() {
+  if (!confirm('Clear all annotations on this page? This cannot be undone.')) return;
+  localStorage.removeItem(ANN_KEY);
+  Object.keys(annStrokes).forEach(function(qid) { annStrokes[qid] = []; _schedRdraw(qid); });
+  document.querySelectorAll('mark[class^="hl-"]').forEach(function(m) {
+    var p = m.parentNode; while (m.firstChild) p.insertBefore(m.firstChild, m); p.removeChild(m);
+  });
+}
+
+// === CUSTOM SELECTION POPUP ===
+var _selPop = null;
+function _initSelPopup() {
+  _selPop = document.getElementById('sel-popup');
+  if (!_selPop) return;
+  // Hide popup when user clicks outside it
+  document.addEventListener('mousedown', function(e) {
+    if (_selPop && !_selPop.contains(e.target)) _hideSelPopup();
+  });
+  // Show popup when user makes a text selection inside a qcard
+  document.addEventListener('selectionchange', function() {
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) {
+      // Small delay: avoids hiding before a button click registers
+      setTimeout(function() {
+        var s = window.getSelection();
+        if (!s || s.isCollapsed) _hideSelPopup();
+      }, 120);
+      return;
+    }
+    var range = sel.getRangeAt(0);
+    var node = range.commonAncestorContainer;
+    var el = node.nodeType === 1 ? node : node.parentElement;
+    if (!el || !el.closest('.qcard')) { _hideSelPopup(); return; }
+    if (document.body.classList.contains('mode-annotate')) { _hideSelPopup(); return; }
+    _showSelPopup(range);
+  });
+}
+function _showSelPopup(range) {
+  if (!_selPop) return;
+  var rect = range.getBoundingClientRect();
+  if (!rect || (rect.width < 2 && rect.height < 2)) return;
+  var x = rect.left + rect.width / 2;
+  // Clamp horizontally so popup stays within viewport
+  x = Math.max(120, Math.min(window.innerWidth - 120, x));
+  var popH = 46;
+  var top = rect.top - popH - 8;
+  if (top < 60) top = rect.bottom + 8; // flip below selection when near top
+  _selPop.style.left = x + 'px';
+  _selPop.style.top = top + 'px';
+  // Show remove-hl button only when selection contains a highlight
+  var frag = range.cloneContents();
+  var hasHL = !!(frag.querySelector && frag.querySelector('mark[class^="hl-"]'));
+  var rb = document.getElementById('sel-remove-btn');
+  if (rb) rb.style.display = hasHL ? '' : 'none';
+  _selPop.classList.add('visible');
+}
+function _hideSelPopup() {
+  if (_selPop) _selPop.classList.remove('visible');
+}
+function selHighlight(color) {
+  var sel = window.getSelection();
+  if (!sel || sel.isCollapsed || !sel.rangeCount) { _hideSelPopup(); return; }
+  var range = sel.getRangeAt(0);
+  var node = range.commonAncestorContainer;
+  var el = node.nodeType === 1 ? node : node.parentElement;
+  var qcard = el ? el.closest('.qcard') : null;
+  if (!qcard) { _hideSelPopup(); return; }
+  var mark = document.createElement('mark');
+  mark.className = 'hl-' + color;
+  try {
+    range.surroundContents(mark);
+  } catch(e) {
+    // Range crosses element boundaries — extract and re-insert
+    try {
+      var frag = range.extractContents();
+      mark.appendChild(frag);
+      range.insertNode(mark);
+    } catch(e2) { _hideSelPopup(); return; }
+  }
+  sel.removeAllRanges();
+  _saveHL(qcard);
+  _hideSelPopup();
+}
+function selRemoveHighlight() {
+  var sel = window.getSelection();
+  if (!sel || !sel.rangeCount) { _hideSelPopup(); return; }
+  var range = sel.getRangeAt(0);
+  var node = range.commonAncestorContainer;
+  var el = node.nodeType === 1 ? node : node.parentElement;
+  var qcard = el ? el.closest('.qcard') : null;
+  if (!qcard) { _hideSelPopup(); return; }
+  var toRemove = [];
+  qcard.querySelectorAll('mark[class^="hl-"]').forEach(function(m) {
+    if (sel.containsNode(m, true)) toRemove.push(m);
+  });
+  toRemove.forEach(function(m) {
+    var p = m.parentNode;
+    while (m.firstChild) p.insertBefore(m.firstChild, m);
+    p.removeChild(m);
+  });
+  sel.removeAllRanges();
+  _saveHL(qcard);
+  _hideSelPopup();
+}
+function selCopy() {
+  var sel = window.getSelection();
+  if (sel && !sel.isCollapsed) {
+    try { document.execCommand('copy'); } catch(e) {}
+  }
+  _hideSelPopup();
+}
+function selSearch() {
+  var sel = window.getSelection();
+  var q = sel ? sel.toString().trim() : '';
+  if (q) window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank');
+  _hideSelPopup();
+}
+function _saveHL(qcard) {
+  var qid = qcard.dataset.id;
+  var anns = _loadAnns(); anns[qid] = anns[qid] || {};
+  var hl = {};
+  var qt = qcard.querySelector('.q-text');         if (qt) hl.qt = qt.innerHTML;
+  var op = qcard.querySelector('.opts');            if (op) hl.op = op.innerHTML;
+  var ex = qcard.querySelector('.explanation-ar'); if (ex) hl.ex = ex.innerHTML;
+  var wa = qcard.querySelector('.written-answer'); if (wa) hl.wa = wa.innerHTML;
+  var ar = qcard.querySelector('.answer-reveal');  if (ar) hl.ar = ar.innerHTML;
+  anns[qid].hl = hl;
+  localStorage.setItem(ANN_KEY, JSON.stringify(anns));
+}
+function _restoreHL() {
+  var anns = _loadAnns();
+  document.querySelectorAll('.qcard').forEach(function(qcard) {
+    var qid = qcard.dataset.id;
+    var hl = anns[qid] && anns[qid].hl;
+    if (!hl) return;
+    var qt = qcard.querySelector('.q-text');         if (qt && hl.qt) qt.innerHTML = hl.qt;
+    var op = qcard.querySelector('.opts');            if (op && hl.op) op.innerHTML = hl.op;
+    var ex = qcard.querySelector('.explanation-ar'); if (ex && hl.ex) ex.innerHTML = hl.ex;
+    var wa = qcard.querySelector('.written-answer'); if (wa && hl.wa) wa.innerHTML = hl.wa;
+    var ar = qcard.querySelector('.answer-reveal');  if (ar && hl.ar) ar.innerHTML = hl.ar;
+  });
+}
+</script>
+</body>
+</html>

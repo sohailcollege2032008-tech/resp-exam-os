@@ -527,12 +527,102 @@ footer{text-align:center;color:#30363d;font-size:.72rem;padding:30px 0 20px}
       </a>
     </div>
   </div>
+  <div class="hub-sec" id="sec-written">
+    <h2 onclick="toggleSec('sec-written')">✍️ أسئلة الريتن — السنين السابقة<span class="caret">▼</span></h2>
+    <div class="cards-grid">
+      <a class="card" href="written-physio.html" onclick="markVisit('resp_prev_written_physio')">
+        <div class="card-top">
+          <span class="cicon">❤️</span>
+          <span class="cname">ريتن فسيولوجيا</span>
+        </div>
+        <div class="pbar-wrap"><div class="pbar-fill" id="pb-resp_prev_written_physio" style="width:0%"></div></div>
+        <div class="cmeta">
+          <span>3 سؤال</span>
+          <span id="ca-resp_prev_written_physio">0 أُجيب</span>
+          <span id="cs-resp_prev_written_physio">0 ★</span>
+        </div>
+        <div class="cstatus">
+          <button class="sbtn" id="sb-resp_prev_written_physio" onclick="cycleStatus('resp_prev_written_physio',event)">—</button>
+          <span class="clast" id="cl-resp_prev_written_physio"></span>
+          <button class="dl-btn" onclick="downloadFile('written-physio.html',event)" title="تحميل">⬇</button>
+        </div>
+      </a>
+      <a class="card" href="written-anatomy.html" onclick="markVisit('resp_prev_written_anatomy')">
+        <div class="card-top">
+          <span class="cicon">🫁</span>
+          <span class="cname">ريتن أناتومي</span>
+        </div>
+        <div class="pbar-wrap"><div class="pbar-fill" id="pb-resp_prev_written_anatomy" style="width:0%"></div></div>
+        <div class="cmeta">
+          <span>3 سؤال</span>
+          <span id="ca-resp_prev_written_anatomy">0 أُجيب</span>
+          <span id="cs-resp_prev_written_anatomy">0 ★</span>
+        </div>
+        <div class="cstatus">
+          <button class="sbtn" id="sb-resp_prev_written_anatomy" onclick="cycleStatus('resp_prev_written_anatomy',event)">—</button>
+          <span class="clast" id="cl-resp_prev_written_anatomy"></span>
+          <button class="dl-btn" onclick="downloadFile('written-anatomy.html',event)" title="تحميل">⬇</button>
+        </div>
+      </a>
+      <a class="card" href="written-micro.html" onclick="markVisit('resp_prev_written_micro')">
+        <div class="card-top">
+          <span class="cicon">🦠</span>
+          <span class="cname">ريتن مايكرو</span>
+        </div>
+        <div class="pbar-wrap"><div class="pbar-fill" id="pb-resp_prev_written_micro" style="width:0%"></div></div>
+        <div class="cmeta">
+          <span>2 سؤال</span>
+          <span id="ca-resp_prev_written_micro">0 أُجيب</span>
+          <span id="cs-resp_prev_written_micro">0 ★</span>
+        </div>
+        <div class="cstatus">
+          <button class="sbtn" id="sb-resp_prev_written_micro" onclick="cycleStatus('resp_prev_written_micro',event)">—</button>
+          <span class="clast" id="cl-resp_prev_written_micro"></span>
+          <button class="dl-btn" onclick="downloadFile('written-micro.html',event)" title="تحميل">⬇</button>
+        </div>
+      </a>
+      <a class="card" href="written-pharma.html" onclick="markVisit('resp_prev_written_pharma')">
+        <div class="card-top">
+          <span class="cicon">💊</span>
+          <span class="cname">ريتن فارما</span>
+        </div>
+        <div class="pbar-wrap"><div class="pbar-fill" id="pb-resp_prev_written_pharma" style="width:0%"></div></div>
+        <div class="cmeta">
+          <span>2 سؤال</span>
+          <span id="ca-resp_prev_written_pharma">0 أُجيب</span>
+          <span id="cs-resp_prev_written_pharma">0 ★</span>
+        </div>
+        <div class="cstatus">
+          <button class="sbtn" id="sb-resp_prev_written_pharma" onclick="cycleStatus('resp_prev_written_pharma',event)">—</button>
+          <span class="clast" id="cl-resp_prev_written_pharma"></span>
+          <button class="dl-btn" onclick="downloadFile('written-pharma.html',event)" title="تحميل">⬇</button>
+        </div>
+      </a>
+      <a class="card" href="written-patho.html" onclick="markVisit('resp_prev_written_patho')">
+        <div class="card-top">
+          <span class="cicon">🧫</span>
+          <span class="cname">ريتن باثو</span>
+        </div>
+        <div class="pbar-wrap"><div class="pbar-fill" id="pb-resp_prev_written_patho" style="width:0%"></div></div>
+        <div class="cmeta">
+          <span>2 سؤال</span>
+          <span id="ca-resp_prev_written_patho">0 أُجيب</span>
+          <span id="cs-resp_prev_written_patho">0 ★</span>
+        </div>
+        <div class="cstatus">
+          <button class="sbtn" id="sb-resp_prev_written_patho" onclick="cycleStatus('resp_prev_written_patho',event)">—</button>
+          <span class="clast" id="cl-resp_prev_written_patho"></span>
+          <button class="dl-btn" onclick="downloadFile('written-patho.html',event)" title="تحميل">⬇</button>
+        </div>
+      </a>
+    </div>
+  </div>
 </main>
 
 <footer>Respiratory Study OS · Al-Azhar University · Batch 62 · Built with NotebookLM</footer>
 
 <script>
-const CATALOG = [{"fid": "resp_dept_bio_01", "total": 31}, {"fid": "resp_dept_histo1_01", "total": 46}, {"fid": "resp_dept_histo2_01", "total": 49}, {"fid": "resp_dept_micro_01", "total": 122}, {"fid": "resp_dept_para_02", "total": 18}, {"fid": "resp_dept_pharma_01", "total": 74}, {"fid": "resp_dept_physio_01", "total": 62}, {"fid": "resp_prev_exam_resp_61_exam", "total": 61}, {"fid": "resp_prev_exam_end_mod_57", "total": 40}, {"fid": "resp_prev_exam_end_sem_55", "total": 52}, {"fid": "resp_prev_exam_form_55", "total": 20}, {"fid": "resp_prev_exam_dor_tani_55", "total": 93}, {"fid": "resp_prev_exam_exam_55_p1", "total": 54}, {"fid": "resp_prev_exam_exam_55_p2", "total": 53}, {"fid": "resp_patho_mcq_sheet", "total": 18}, {"fid": "resp_micro_written_sheet", "total": 11}, {"fid": "resp_prev_subj_anatomy", "total": 51, "dup": true}, {"fid": "resp_prev_subj_physio", "total": 94, "dup": true}, {"fid": "resp_prev_subj_pharma", "total": 41, "dup": true}, {"fid": "resp_prev_subj_histo", "total": 35, "dup": true}, {"fid": "resp_prev_subj_patho", "total": 39, "dup": true}, {"fid": "resp_prev_subj_micro", "total": 39, "dup": true}, {"fid": "resp_prev_subj_para", "total": 16, "dup": true}, {"fid": "resp_prev_subj_bio", "total": 58, "dup": true}];
+const CATALOG = [{"fid": "resp_dept_bio_01", "total": 31}, {"fid": "resp_dept_histo1_01", "total": 46}, {"fid": "resp_dept_histo2_01", "total": 49}, {"fid": "resp_dept_micro_01", "total": 122}, {"fid": "resp_dept_para_02", "total": 18}, {"fid": "resp_dept_pharma_01", "total": 74}, {"fid": "resp_dept_physio_01", "total": 62}, {"fid": "resp_prev_exam_resp_61_exam", "total": 61}, {"fid": "resp_prev_exam_end_mod_57", "total": 40}, {"fid": "resp_prev_exam_end_sem_55", "total": 52}, {"fid": "resp_prev_exam_form_55", "total": 20}, {"fid": "resp_prev_exam_dor_tani_55", "total": 93}, {"fid": "resp_prev_exam_exam_55_p1", "total": 54}, {"fid": "resp_prev_exam_exam_55_p2", "total": 53}, {"fid": "resp_patho_mcq_sheet", "total": 18}, {"fid": "resp_micro_written_sheet", "total": 11}, {"fid": "resp_prev_written_physio", "total": 3}, {"fid": "resp_prev_written_anatomy", "total": 3}, {"fid": "resp_prev_written_micro", "total": 2}, {"fid": "resp_prev_written_pharma", "total": 2}, {"fid": "resp_prev_written_patho", "total": 2}, {"fid": "resp_prev_subj_anatomy", "total": 51, "dup": true}, {"fid": "resp_prev_subj_physio", "total": 94, "dup": true}, {"fid": "resp_prev_subj_pharma", "total": 41, "dup": true}, {"fid": "resp_prev_subj_histo", "total": 35, "dup": true}, {"fid": "resp_prev_subj_patho", "total": 39, "dup": true}, {"fid": "resp_prev_subj_micro", "total": 39, "dup": true}, {"fid": "resp_prev_subj_para", "total": 16, "dup": true}, {"fid": "resp_prev_subj_bio", "total": 58, "dup": true}];
 const LS_PFX  = 'exam_os_v1_';
 const HUB_KEY = 'resp_hub_v1';
 const CYCLES  = ['','sr','sd','sw'];
