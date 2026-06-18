@@ -93,7 +93,7 @@ footer{text-align:center;color:#30363d;font-size:.72rem;padding:30px 0 20px}
 <main>
   <div class="sum-bar">
     <div class="sstat"><div class="v" id="s-ans">0</div><div class="l">أسئلة أُجيبت</div></div>
-    <div class="sstat"><div class="v" id="s-tot">0</div><div class="l">إجمالي الأسئلة</div></div>
+    <div class="sstat"><div class="v" id="s-tot">0</div><div class="l">سؤال فريد</div></div>
     <div class="sstat"><div class="v" id="s-done">0</div><div class="l">ملفات ✓</div></div>
     <div class="sstat"><div class="v" id="s-star">0</div><div class="l">محفوظ ★</div></div>
     <button class="rst-btn" onclick="resetAll()">🗑 مسح البيانات</button>
@@ -348,7 +348,7 @@ footer{text-align:center;color:#30363d;font-size:.72rem;padding:30px 0 20px}
     </div>
   </div>
   <div class="hub-sec" id="sec-subj">
-    <h2 onclick="toggleSec('sec-subj')">📚 مجمع MCQ — بالمادة<span class="caret">▼</span></h2>
+    <h2 onclick="toggleSec('sec-subj')">📚 مجمع MCQ بالمادة — نفس أسئلة السنين السابقة<span class="caret">▼</span></h2>
     <div class="cards-grid">
       <a class="card" href="subj-anatomy.html" onclick="markVisit('resp_prev_subj_anatomy')">
         <div class="card-top">
@@ -532,7 +532,7 @@ footer{text-align:center;color:#30363d;font-size:.72rem;padding:30px 0 20px}
 <footer>Respiratory Study OS · Al-Azhar University · Batch 62 · Built with NotebookLM</footer>
 
 <script>
-const CATALOG = [{"fid": "resp_dept_bio_01", "total": 31}, {"fid": "resp_dept_histo1_01", "total": 46}, {"fid": "resp_dept_histo2_01", "total": 49}, {"fid": "resp_dept_micro_01", "total": 122}, {"fid": "resp_dept_para_02", "total": 18}, {"fid": "resp_dept_pharma_01", "total": 74}, {"fid": "resp_dept_physio_01", "total": 62}, {"fid": "resp_prev_exam_resp_61_exam", "total": 61}, {"fid": "resp_prev_exam_end_mod_57", "total": 40}, {"fid": "resp_prev_exam_end_sem_55", "total": 52}, {"fid": "resp_prev_exam_form_55", "total": 20}, {"fid": "resp_prev_exam_dor_tani_55", "total": 93}, {"fid": "resp_prev_exam_exam_55_p1", "total": 54}, {"fid": "resp_prev_exam_exam_55_p2", "total": 53}, {"fid": "resp_prev_subj_anatomy", "total": 51}, {"fid": "resp_prev_subj_physio", "total": 94}, {"fid": "resp_prev_subj_pharma", "total": 41}, {"fid": "resp_prev_subj_histo", "total": 35}, {"fid": "resp_prev_subj_patho", "total": 39}, {"fid": "resp_prev_subj_micro", "total": 39}, {"fid": "resp_prev_subj_para", "total": 16}, {"fid": "resp_prev_subj_bio", "total": 58}, {"fid": "resp_patho_mcq_sheet", "total": 18}, {"fid": "resp_micro_written_sheet", "total": 11}];
+const CATALOG = [{"fid": "resp_dept_bio_01", "total": 31}, {"fid": "resp_dept_histo1_01", "total": 46}, {"fid": "resp_dept_histo2_01", "total": 49}, {"fid": "resp_dept_micro_01", "total": 122}, {"fid": "resp_dept_para_02", "total": 18}, {"fid": "resp_dept_pharma_01", "total": 74}, {"fid": "resp_dept_physio_01", "total": 62}, {"fid": "resp_prev_exam_resp_61_exam", "total": 61}, {"fid": "resp_prev_exam_end_mod_57", "total": 40}, {"fid": "resp_prev_exam_end_sem_55", "total": 52}, {"fid": "resp_prev_exam_form_55", "total": 20}, {"fid": "resp_prev_exam_dor_tani_55", "total": 93}, {"fid": "resp_prev_exam_exam_55_p1", "total": 54}, {"fid": "resp_prev_exam_exam_55_p2", "total": 53}, {"fid": "resp_patho_mcq_sheet", "total": 18}, {"fid": "resp_micro_written_sheet", "total": 11}, {"fid": "resp_prev_subj_anatomy", "total": 51, "dup": true}, {"fid": "resp_prev_subj_physio", "total": 94, "dup": true}, {"fid": "resp_prev_subj_pharma", "total": 41, "dup": true}, {"fid": "resp_prev_subj_histo", "total": 35, "dup": true}, {"fid": "resp_prev_subj_patho", "total": 39, "dup": true}, {"fid": "resp_prev_subj_micro", "total": 39, "dup": true}, {"fid": "resp_prev_subj_para", "total": 16, "dup": true}, {"fid": "resp_prev_subj_bio", "total": 58, "dup": true}];
 const LS_PFX  = 'exam_os_v1_';
 const HUB_KEY = 'resp_hub_v1';
 const CYCLES  = ['','sr','sd','sw'];
@@ -566,7 +566,7 @@ function relTime(ts){
 
 function render(){
   let totAns=0,totTot=0,totDone=0,totStar=0;
-  CATALOG.forEach(function({fid,total}){
+  CATALOG.forEach(function({fid,total,dup}){
     const p=fileProg(fid);
     const pct=total>0?Math.round(p.ans/total*100):0;
     const st=hub.st[fid]||'';
@@ -577,8 +577,8 @@ function render(){
     const cl=el('cl-'+fid); if(cl)cl.textContent=relTime(p.ts);
     const sb=el('sb-'+fid);
     if(sb){sb.textContent=LABELS[st]||'—';sb.className='sbtn '+st;}
-    totAns+=p.ans; totTot+=total; totStar+=p.star;
-    if(st==='sd')totDone++;
+    if(!dup){totAns+=p.ans; totTot+=total; totStar+=p.star;}
+    if(!dup&&st==='sd')totDone++;
   });
   const pct=totTot>0?Math.round(totAns/totTot*100):0;
   document.getElementById('ob-fill').style.width=pct+'%';
